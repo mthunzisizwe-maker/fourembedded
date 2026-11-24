@@ -3,218 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FOUR — Embedded | Hard Lock + Cooldown</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<title>FOUR — Finally You Admitted It</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
-:root{--bg:#0D0D0E;--card:#17171A;--line:#2B2B2E;--text:#F2F0EB;--muted:#A9A8A3;--gold:#D4B06A;--gold-light:#F5E8C8;--sage:#8FB996}
-body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.6;padding-bottom:80px;-webkit-font-smoothing:antialiased}
+:root{--bg:#0D0D0E;--card:#17171A;--line:#2B2B2E;--text:#F2F0EB;--muted:#A9A8A3;--gold:#D4B06A;--gold2:#F5E8C8;--sage:#8FB996}
+body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.6;padding-bottom:90px}
 a{color:inherit}
-.nav{position:sticky;top:0;z-index:100;background:rgba(13,13,14,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:10px}
-.logo{font-weight:800;font-size:17px;font-family:Playfair Display,serif;color:#fff}.logo span{color:var(--gold);font-weight:600;font-family:Inter,sans-serif;font-size:12px;letter-spacing:1.2px}
-.navlinks{display:flex;gap:6px;flex-wrap:wrap}.navlinks a{padding:8px 14px;border-radius:100px;font-size:12.5px;font-weight:600;text-decoration:none;color:var(--muted);border:1px solid transparent}
-.navlinks a:hover{color:#fff;background:#232326}
-.navlinks a.active{background:var(--gold);color:#111}
+.nav{position:sticky;top:0;z-index:100;background:rgba(13,13,14,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:14px 18px}
+.logo{font-weight:800;font-size:18px;font-family:Playfair Display,serif}.logo span{color:var(--gold);font-size:11px;font-family:Inter,sans-serif;letter-spacing:1px}
 .live{font-size:11px;font-weight:700;color:var(--sage);display:flex;gap:6px;align-items:center}.dot{width:7px;height:7px;background:var(--sage);border-radius:50%;box-shadow:0 0 0 4px rgba(143,185,150,.2)}
-.wrap{max-width:1120px;margin:auto;padding:0 20px}
-.hero{padding:64px 0 36px;text-align:center}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#1A1A1D;border:1px solid #333338;padding:9px 16px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
-.eyebrow i{width:6px;height:6px;background:var(--gold);border-radius:50%;display:inline-block}
-.hero h1{font-size:56px;line-height:1.05;letter-spacing:-1.5px;font-weight:700;margin:26px 0 18px;font-family:Playfair Display,serif;color:#fff;max-width:900px;margin-left:auto;margin-right:auto}
-@media(max-width:700px){.hero h1{font-size:32px;line-height:1.15}}
-.hero h1 em{font-style:italic;color:var(--gold);font-weight:600}
-.hero p.sub{color:var(--muted);font-size:16px;max-width:620px;margin:0 auto;line-height:1.7}.hero p.sub b{color:#fff}
-.facts{margin:36px 0 0;text-align:left;background:linear-gradient(180deg,#1B1B1E,#141415);border:1px solid #333338;border-radius:24px;padding:28px}
-.facts h2{font-family:Playfair Display,serif;font-size:28px;line-height:1.2;color:#fff;text-align:center;max-width:760px;margin:0 auto}
-.facts h2 em{color:var(--gold);font-style:italic}
-.facts p.lead{color:var(--muted);text-align:center;max-width:620px;margin:12px auto 0;font-size:14.5px;line-height:1.7}
-.factsgrid{display:grid;gap:14px;margin-top:24px}@media(min-width:760px){.factsgrid{grid-template-columns:1fr 1fr 1fr}}
-.fact{background:#0D0D0E;border:1px solid var(--line);border-radius:20px;padding:22px}
-.fact b.num{font-size:38px;letter-spacing:-1px;color:var(--gold-light);display:block;line-height:1}
-.fact h3{font-size:16px;color:#fff;margin:12px 0 6px}
-.fact p{font-size:13.5px;color:var(--muted);line-height:1.7}
-.fact span.tag{font-size:10.5px;font-weight:700;letter-spacing:1px;color:var(--gold);text-transform:uppercase}
-.twocards{display:grid;gap:16px;margin:36px 0;text-align:left}
-@media(min-width:800px){.twocards{grid-template-columns:1fr 1fr}}
-.feature{background:linear-gradient(180deg,#1B1B1E,#161618);border:1px solid var(--line);border-radius:24px;padding:28px}
-.feature .top{display:flex;justify-content:space-between;align-items:flex-start}
-.feature .num{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--gold);text-transform:uppercase}
-.feature .icon{width:52px;height:52px;border-radius:16px;background:#242428;display:flex;align-items:center;justify-content:center;font-size:24px;border:1px solid #333338}
-.feature h2{font-size:28px;line-height:1.1;margin:16px 0 10px;font-weight:700;font-family:Playfair Display,serif;color:#fff}
-.feature p{color:var(--muted);font-size:14.5px;line-height:1.7}
-.feature .stat{margin-top:20px;background:#0F0F10;border:1px solid var(--line);border-radius:16px;padding:16px}
-.feature .stat .row{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:600}
-.bar{height:6px;background:#2B2B2E;border-radius:100px;overflow:hidden;margin:10px 0}.fill{height:100%;background:var(--gold);border-radius:100px}
-.feature .status{font-size:13px;font-weight:700;color:#fff}
-.btnrow{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+.wrap{max-width:820px;margin:auto;padding:0 18px}
+/* INTRO */
+.intro{min-height:92vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:40px 0 20px}
+.intro .small{font-size:11px;letter-spacing:2px;font-weight:700;color:var(--gold);text-transform:uppercase}
+.intro h1{font-family:Playfair Display,serif;font-size:46px;line-height:1.05;letter-spacing:-1px;margin:18px 0;color:#fff}
+@media(max-width:650px){.intro h1{font-size:34px}}
+.intro h1 em{color:var(--gold);font-style:italic}
+.intro p{color:var(--muted);max-width:580px;margin:0 auto;font-size:16px;line-height:1.7}
+.intro p b{color:#fff}
+.scrollbtn{margin:28px auto 0;width:56px;height:56px;border-radius:50%;background:var(--gold);color:#111;font-size:22px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;animation:bounce 1.6s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+/* CHAT */
+.chatbox{background:linear-gradient(180deg,#1B1B1E,#141415);border:1px solid #333338;border-radius:28px;padding:22px;margin:20px 0 40px;overflow:hidden}
+.chatheader{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.avatar{width:48px;height:48px;border-radius:50%;background:var(--gold);color:#111;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;font-family:Playfair Display,serif}
+.chatheader b{font-size:16px}.chatheader span{display:block;font-size:12px;color:var(--sage);font-weight:600}
+.msg{max-width:85%;padding:14px 16px;border-radius:20px;font-size:15px;line-height:1.65;margin:10px 0;animation:fade .5s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.msg.four{background:#242428;border:1px solid #333338;border-bottom-left-radius:6px}
+.msg.you{background:var(--gold);color:#111;margin-left:auto;border-bottom-right-radius:6px;font-weight:600}
+.msg.four b{color:var(--gold2)}
+.msg .time{font-size:10px;color:#888;margin-top:6px;display:block}
+.msg.you .time{color:#555}
+.typing{display:inline-flex;gap:4px}.typing i{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:blink 1s infinite}.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:20px 0}
 .btn{padding:15px 22px;border-radius:100px;font-weight:700;font-size:14px;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
-.btn-primary{background:var(--gold);color:#111}.btn-primary:hover{background:#E0C07E}
-.btn-ghost{background:#1A1A1D;color:#fff;border:1px solid var(--line)}
-.contact{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-.contact a{padding:10px 16px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:#1A1A1D;color:#fff}
-.section{padding:60px 0;border-top:1px solid var(--line);scroll-margin-top:80px}
+.btn-primary{background:var(--gold);color:#111}.btn-ghost{background:#1A1A1D;color:#fff;border:1px solid var(--line)}
+.contact{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.contact a{padding:10px 16px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:#1A1A1D}
+.section{padding:54px 0;border-top:1px solid var(--line)}
 .kicker{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.section h2{font-size:36px;line-height:1.05;letter-spacing:-.8px;font-weight:700;font-family:Playfair Display,serif;color:#fff}
-.section p.desc{color:var(--muted);font-size:15px;line-height:1.7;margin-top:12px;max-width:680px}
-.grid{display:grid;gap:14px;margin-top:28px}@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr 1fr 1fr!important}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
-.card h3{font-size:17px;margin:12px 0 6px;font-weight:700;color:#fff}.card p{font-size:14px;line-height:1.7;color:var(--muted)}
-.card .label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
-.code{background:#000;color:#D8C9A3;border:1px solid #2B2B2E;border-radius:14px;padding:14px;font-family:monospace;font-size:12px;line-height:1.7;margin-top:12px;overflow-x:auto}
-.calc{background:#17171A;border:1px solid var(--line);border-radius:24px;padding:28px;margin-top:24px}
+.section h2{font-size:34px;line-height:1.05;font-family:Playfair Display,serif}
+.section p.desc{color:var(--muted);font-size:15px;line-height:1.7;margin-top:10px}
+.grid{display:grid;gap:14px;margin-top:22px}@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
+.card h3{font-size:17px;margin:10px 0 6px;color:#fff}.card p{font-size:14px;color:var(--muted);line-height:1.7}
+.label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.code{background:#000;color:#D8C9A3;border:1px solid #2B2B2E;border-radius:14px;padding:14px;font-family:monospace;font-size:12px;line-height:1.7;margin-top:12px}
+.calc{background:#17171A;border:1px solid var(--line);border-radius:24px;padding:24px;margin-top:20px}
 input,select{width:100%;padding:14px 16px;border-radius:14px;background:#0D0D0E;color:#fff;border:1px solid var(--line);font-size:15px;font-weight:600;margin:6px 0;outline:none}
-input:focus,select:focus{border-color:var(--gold);background:#111112;box-shadow:0 0 0 3px rgba(212,176,106,.15)}
 label{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.result{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}@media(min-width:600px){.result{grid-template-columns:1fr 1fr 1fr}}
-.result div{background:#0D0D0E;border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}.result b{display:block;font-size:19px;color:#fff}.result span{font-size:11px;color:var(--muted);font-weight:600}
-.lockbox{text-align:center;padding:24px;background:#17171A;border:1px solid var(--line);border-radius:20px;margin-top:16px}
-.price{font-size:34px;font-weight:800;margin:10px 0;color:var(--gold-light)}.price s{font-size:15px;color:#7C7B77;font-weight:500}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}@media(min-width:600px){.result{grid-template-columns:1fr 1fr 1fr}}
+.result div{background:#0D0D0E;border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center}.result b{display:block;font-size:18px;color:#fff}.result span{font-size:11px;color:var(--muted)}
+.price{font-size:32px;font-weight:800;color:var(--gold2);margin:10px 0}.price s{font-size:14px;color:#888}
 .bundle{border:1px solid #4A3F2A!important;background:linear-gradient(180deg,#24211A,#17171A)!important}
-.bundle p{color:#D1CFC9!important}.bundle .label{color:var(--gold)!important}
-footer{text-align:center;color:var(--muted);font-size:12.5px;padding:32px 20px;line-height:1.8;border-top:1px solid var(--line)}
+footer{text-align:center;color:var(--muted);font-size:12.5px;padding:32px 18px;line-height:1.8;border-top:1px solid var(--line)}
 footer a{color:#fff;font-weight:600}
-.stickybuy{position:fixed;bottom:0;left:0;right:0;background:rgba(13,13,14,.92);backdrop-filter:blur(16px);padding:12px 16px;border-top:1px solid var(--line);z-index:60;display:flex;gap:12px;align-items:center;justify-content:center}
-.flashdemo{border:1px solid var(--gold)!important;box-shadow:0 0 0 4px rgba(212,176,106,.15)!important}
-.list{list-style:none;margin-top:12px}.list li{padding:8px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;gap:10px}.list li b{color:#fff;min-width:110px}
-.mini{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.mini span{background:#0D0D0E;border:1px solid var(--line);padding:7px 12px;border-radius:100px;font-size:12px;font-weight:600;color:#D8D8D2}
+.stickybuy{position:fixed;bottom:0;left:0;right:0;background:rgba(13,13,14,.94);backdrop-filter:blur(16px);padding:12px 16px;border-top:1px solid var(--line);z-index:60;display:flex;gap:12px;align-items:center;justify-content:center}
+.list{list-style:none;margin-top:10px}.list li{padding:8px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;gap:10px}.list li b{color:#fff;min-width:100px}
+.factsgrid{display:grid;gap:12px;margin-top:20px}@media(min-width:700px){.factsgrid{grid-template-columns:1fr 1fr 1fr}}
+.fact{background:#0D0D0E;border:1px solid var(--line);border-radius:18px;padding:20px}.fact b.num{font-size:34px;color:var(--gold2)}
 </style>
 </head>
 <body>
-<div class="nav">
-<div class="logo">FOUR <span>— EMBEDDED</span></div>
-<div class="navlinks">
-<a href="#top" class="active">Home</a>
-<a href="#facts">Facts</a>
-<a href="#dashboard">Dashboard</a>
-<a href="#journal">Journal</a>
-<a href="#signal">Signal</a>
-<a href="#pricing">Pricing</a>
-</div>
-<div class="live"><div class="dot"></div> Live</div>
+<div class="nav"><div class="logo">FOUR <span>— EMBEDDED</span></div><div class="live"><div class="dot"></div> FOUR is online</div></div>
+
+<div class="wrap">
+<!-- INTRO -->
+<div class="intro">
+<span class="small">Finally • You came</span>
+<h1>FINALLY YOU'VE DECIDED<br>TO ADMIT YOU NEED<br><em>TRADING BETTER.</em></h1>
+<p>Cause alone... <b>it was never going to work.</b><br>You know it. I know it. Let's stop pretending.</p>
+<button class="scrollbtn" onclick="document.getElementById('chat').scrollIntoView({behavior:'smooth'})">↓</button>
+<p style="font-size:12px;margin-top:12px">Scroll down — FOUR wants to talk to you</p>
 </div>
 
-<div class="wrap" id="top">
-<div class="hero">
-<span class="eyebrow"><i></i> For traders who keep blowing accounts</span>
-<h1>Tired of losing your account<br>because of <em>overtrading, greedy,<br>lack of patience?</em></h1>
-<p class="sub">One last trade. Revenge. Then the whole week's profit gone. FOUR stops you when you can't stop yourself.</p>
+<!-- CHAT -->
+<div class="chatbox" id="chat">
+<div class="chatheader"><div class="avatar">F</div><div><b>FOUR</b><span>● Online - typing...</span></div><div style="margin-left:auto;font-size:22px">🔒</div></div>
 
-<div class="facts" id="facts">
-<h2>Maybe we can't change who we are.<br><em>Let's rather find a friend who helps us in our weakness.</em></h2>
-<p class="lead">That friend is FOUR. You don't need to become a different person overnight. You need something that stops you in your weak moment.</p>
+<div class="msg four"><b>HI — I'M FOUR.</b><br>It's about time.<br><br>I've been waiting for you.<span class="time">FOUR • now</span></div>
+
+<div class="msg you">Who are you? 😅<span class="time">You • now</span></div>
+
+<div class="msg four">I'm the friend you needed all this time.<br><br>The one who tells you the truth when everyone else is quiet.<br><br>Let me guess...<span class="time">FOUR • now</span></div>
+
+<div class="msg four">You had a plan.<br>You said <b>"just one trade today."</b><br><br>Then you took 7 trades.<br>You revenge traded.<br>You blew the account.<br><br>Am I lying? 👀<span class="time">FOUR • now</span></div>
+
+<div class="msg you">...okay that's literally me. How did you know?<span class="time">You • now</span></div>
+
+<div class="msg four">Because I've seen it 1000 times.<br><br>It's not your strategy. It's <b>YOU</b> after a loss.<br><br>You get angry. You go big. You try to win it back in one trade.<br><br>And then? Gone. Week gone. Challenge gone. Money gone.<span class="time">FOUR • now</span></div>
+
+<div class="msg four">So listen. I'm not here to judge you.<br><br>I'm here to <b>STOP you</b> when you can't stop yourself.<br><br>That's my whole job.<span class="time">FOUR • now</span></div>
+
+<div class="msg you">So what do you actually do?<span class="time">You • now</span></div>
+
+<div class="msg four">Two things. Simple.<br><br><b>1. HARD LOCK 🔒</b><br>When you hit YOUR loss — I lock your whole account. No BUY. No SELL. No "one more".<br><br><b>2. COOLDOWN ⏳</b><br>After every trade, I force you to wait 30 minutes. So you can't trade angry.<br><br>That's it. That's how you stop blowing.<span class="time">FOUR • now</span></div>
+
+<div class="msg four">You don't need to become a different person overnight.<br><br>You just need a friend who helps you in your weakness.<br><br>That's me. I'm FOUR.<span class="time">FOUR • now</span></div>
+
+<div class="msg you">Okay FOUR... show me. I'm listening.<span class="time">You • now</span></div>
+
+<div class="msg four"><b>Good. Scroll down.</b><br>Let me show you how I protect you. 👇<br><br><span class="typing"><i></i><i></i><i></i></span><span class="time">FOUR is typing...</span></div>
+
+<div class="btnrow"><a href="#facts" class="btn btn-primary">Okay FOUR, Show Me →</a></div>
+</div>
+
+<!-- FACTS AS CHAT -->
+<div class="section" id="facts">
+<div class="kicker">FOUR says:</div>
+<h2>"It's not just you.<br>Look at the facts."</h2>
+<p class="desc">FOUR pulls out the numbers. This is why you kept failing - it wasn't just bad luck.</p>
 <div class="factsgrid">
-<div class="fact"><span class="tag">Fact 1 — Daily Loss</span><b class="num">54.6%</b><h3>Most prop accounts die on the daily loss limit</h3><p>In the PropSim Index, the daily loss limit ended 54.6% of failed challenge accounts. Not the strategy. One bad day, a few revenge trades, and the account is gone.</p></div>
-<div class="fact"><span class="tag">Fact 2 — Overtrading</span><b class="num">2×</b><h3>Failing traders trade twice as much</h3><p>Traders who fail average 6.8 trades a day vs 3.2 for those who pass. More trades = more chances to break the rule. It’s not more opportunity, it’s more danger.</p></div>
-<div class="fact"><span class="tag">Fact 3 — 90% Fail</span><b class="num">~90%</b><h3>Almost everyone fails the challenge</h3><p>Across major firms, around 86% - 95% of challenge attempts never reach a funded account. The main cause is breaking a loss limit, not missing the profit target.</p></div>
+<div class="fact"><span class="label">Fact 1</span><b class="num">54.6%</b><h3 style="color:#fff;margin:8px 0">Most prop accounts die on daily loss</h3><p style="color:var(--muted);font-size:13.5px">Not strategy. One bad day, revenge trades, account gone.</p></div>
+<div class="fact"><span class="label">Fact 2</span><b class="num">2×</b><h3 style="color:#fff;margin:8px 0">Failing traders trade 2x more</h3><p style="color:var(--muted);font-size:13.5px">Fail: 6.8 trades/day. Pass: 3.2 trades/day. More trades = more danger.</p></div>
+<div class="fact"><span class="label">Fact 3</span><b class="num">~90%</b><h3 style="color:#fff;margin:8px 0">Almost everyone fails</h3><p style="color:var(--muted);font-size:13.5px">86%-95% fail challenges. Main cause: breaking loss limit.</p></div>
 </div>
-<p style="text-align:center;color:#A9A8A3;font-size:12.5px;margin-top:18px">Sources: PropSim Prop Trading Index, PathToFunded industry estimates. Figures vary by firm.</p>
-<div class="btnrow"><a href="#dashboard" class="btn btn-primary">Meet Your Friend — See Dashboard</a></div>
-</div>
-
-<div class="twocards">
-<div class="feature">
-<div class="top"><span class="num">01 — Protection</span><div class="icon">🔒</div></div>
-<h2>Hard Lock<br>your account</h2>
-<p>When you hit <b style="color:#fff">your own daily loss</b> — not the prop firm's loss — FOUR locks your entire account. No BUY. No SELL. No “one more”. It closes everything.</p>
-<div class="stat"><div class="row"><span>Your loss today</span><span style="color:#fff">R1,000 / R1,000 — Locked</span></div><div class="bar"><div class="fill" style="width:100%"></div></div><div class="status">Hard Locked — Do not trade</div></div>
-</div>
-<div class="feature">
-<div class="top"><span class="num">02 — Discipline</span><div class="icon">⏳</div></div>
-<h2>Cooldown<br>stops your next trade</h2>
-<p>After every close, FOUR forces a <b style="color:#fff">30 minute cooldown.</b> You cannot take the next trade while you are emotional. BUY / SELL turn grey and count down.</p>
-<div class="stat"><div class="row"><span>Cooldown</span><span id="coolStatus" style="color:#fff">Ready</span></div><div class="bar"><div class="fill" id="coolBar" style="width:0%"></div></div><div class="status" id="coolTimer" style="font-size:22px">30:00</div><div style="font-size:12px;color:#A9A8A3;margin-top:4px">BUY / SELL = Blocked during cooldown</div></div>
-</div>
-</div>
-<div class="btnrow"><a href="#dashboard" class="btn btn-primary">Explore Dashboard</a><a href="#journal" class="btn btn-ghost">Explore Journal</a><a href="#signal" class="btn btn-ghost">Explore Signal</a></div>
-<div class="contact"><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20to%20stop%20blowing%20accounts." target="_blank">WhatsApp — +27 72 577 8727</a><a href="mailto:fourembedded@gmail.com?subject=I%20Want%20FOUR&body=Hi%20FOUR%2C%0A%0AI%20want%3A%20" target="_blank">fourembedded@gmail.com</a></div>
-<p style="font-size:12px;color:#A9A8A3;margin-top:14px">Hard Lock + Cooldown = You cannot revenge trade even if you try • FTMO • Funding Pips • E8 • FundedNext • Personal</p>
+<div class="chatbox" style="margin-top:20px"><div class="msg four">See? You're not stupid. You're not cursed.<br><br>You're just <b>human</b>. And humans revenge trade.<br><br>That's why you need me.<span class="time">FOUR • now</span></div></div>
 </div>
 
+<!-- DASHBOARD -->
 <div class="section" id="dashboard">
-<div class="kicker">Dashboard</div>
-<h2>Dashboard</h2>
-<p class="desc">Your dashboard is your control room. Clean, calm, and honest. It tells you the truth before you blow it.</p>
+<div class="kicker">FOUR: Dashboard</div>
+<h2>"This is your control room."</h2>
+<p class="desc">FOUR talks you through it - like he's sitting next to you.</p>
 <div class="grid">
-<div class="card"><div class="label">1 — Hard Locked</div><h3>Your strict friend who locks your account</h3><p>Think of HARD LOCKED as your strict friend. The one who takes your keys when you’ve had enough. He doesn’t argue. He locks.</p><p style="margin-top:10px">FOUR locks your account when the following happens:</p><ul class="list"><li><b>Daily Loss</b> You hit YOUR daily loss — e.g. R1,000</li><li><b>Daily Profit</b> You hit YOUR profit target — e.g. R4,000</li><li><b>3x SL</b> You lost 3x SL in one day</li><li><b>Daily 3%</b> You hit prop daily 3%</li><li><b>Max 5%</b> You hit prop max 5%</li><li><b>Cooldown</b> You are in 30 min cooldown</li></ul><p style="margin-top:10px">When it happens: <b style="color:#fff">HARD LOCKED — DO NOT TRADE.</b> All trades closed. BUY / SELL blocked. Come back tomorrow.</p><div class="code">IF Loss >= YOUR Loss → HARD LOCK<br>IF Profit >= YOUR Target → HARD LOCK<br>IF 3x SL → HARD LOCK</div></div>
-<div class="card"><div class="label">2 — Currency</div><h3>See it in YOUR country's currency</h3><p>It’s hard trading a currency you are not used to. $54 loss means nothing to your brain. <b style="color:#fff">R1,000 loss? You feel that.</b></p><p style="margin-top:10px">Why not see the amount in your country’s base currency, so your mind can see the profit in the manner you understand?</p><ul class="list"><li><b>South Africa</b> $54 = R1,000 — you understand Rands</li><li><b>USA</b> $54 = $54 — you understand Dollars</li><li><b>Europe</b> $54 = €50 — you understand Euros</li><li><b>UK</b> $54 = £42 — you understand Pounds</li></ul><p style="margin-top:10px">One button: <b style="color:#fff">CUR — USD / ZAR / EUR / GBP.</b> Your brain finally gets it.</p><div class="code">BASE: USD<br>DISPLAY: ZAR 18.50 / EUR / GBP<br>$54 → R1,000 — NOW YOU FEEL IT</div></div>
-<div class="card"><div class="label">3 — Notification</div><h3>See all notifications</h3><p>No guessing why you are locked. Dashboard tells you everything.</p><ul class="list"><li><b>Why Locked</b> “HARD LOCKED — Daily Loss R1,000 Hit”</li><li><b>Strategy</b> “Strategy: S1 BO — Breakout” / S2 FB / S3 CD</li><li><b>Cooldown</b> “BLOCKED — Cooldown 12:34 Left”</li><li><b>Margin</b> “NOT ENOUGH MONEY — Need R2,000 / Have R1,500”</li><li><b>News</b> “NEWS BLOCKED — USD High News 14:30”</li><li><b>Session</b> “Session: LONDON Open”</li></ul><p style="margin-top:10px">One place. All notifications. You always know why.</p></div>
-<div class="card"><div class="label">4 — Lot</div><h3>Lock your lot</h3><p>Don’t open 1 lot and erase profit with the next trade with a big unplanned lot.</p><p style="margin-top:10px">You made R4,000 all week on 0.08 lot. Then you get angry, you open 1.00 lot, one loss = <b style="color:#fff">R10,000 gone.</b> Week gone. Challenge gone.</p><p style="margin-top:10px">FOUR locks your lot to <b style="color:#fff">0.08.</b> You cannot change it. +/- does nothing. Typing does nothing. <b style="color:#fff">LOCKED.</b></p><ul class="list"><li><b>Locked</b> 0.08 — always</li><li><b>No Revenge</b> No doubling to recover</li><li><b>Same Risk</b> Every trade, same risk</li></ul><div class="code">LOT 0.08 LOCKED<br>TRY CHANGE → BACK TO 0.08<br>NO 1.00 LOT REVENGE</div></div>
-<div class="card"><div class="label">5 — One Trade</div><h3>One trade a day is enough</h3><p>Well look at your trading. Anytime you add a trade, everything starts failing.</p><p style="margin-top:10px">First trade: <b style="color:#fff">You follow plan. You win R800.</b> You feel good.</p><p style="margin-top:8px">Second trade: <b style="color:#fff">You chase. You lose R1,200.</b> You feel angry.</p><p style="margin-top:8px">Third trade: <b style="color:#fff">Revenge. You lose R2,000.</b> Day gone.</p><p style="margin-top:10px">FOUR says: <b style="color:#fff">ONE TRADE.</b> Max 1 trade at a time. No adding. No stacking. One clean trade, then you are done.</p><ul class="list"><li><b>Max 1</b> Only 1 open trade at a time</li><li><b>No Adding</b> Second BUY blocked</li><li><b>One Plan</b> One setup, one entry, one exit</li></ul><div class="code">MAX TRADES = 1<br>IF PositionsTotal() >= 1 → BLOCK<br>“ONE TRADE ONLY — FINISH THIS FIRST”</div></div>
-<div class="card"><div class="label">6 — Cooldown</div><h3>Trading can quickly turn one trade a day to a mess</h3><p>Think about this. Trading can quickly turn one trade a day to a mess of full losses.</p><p style="margin-top:10px">You planned <b style="color:#fff">1 trade.</b> You took <b style="color:#fff">7 trades.</b> Why? Because after a loss, you did not stop. You did not breathe. You went straight back in.</p><p style="margin-top:10px">FOUR forces <b style="color:#fff">30 MIN COOLDOWN</b> after every close. BUY / SELL turn grey. Timer counts down. You cannot trade emotional.</p><ul class="list"><li><b>After Close</b> Cooldown starts automatically</li><li><b>30 Min</b> You must wait, walk, breathe</li><li><b>Blocked</b> “BLOCKED — Cooldown 18:42 Left”</li></ul><div class="code">ON CLOSE → COOLDOWN 30:00<br>BUY / SELL = GREY + COUNTDOWN<br>NO EMOTIONAL RE-ENTRY</div></div>
-<div class="card"><div class="label">7 — Buttons</div><h3>Let’s talk about buttons</h3><p>One click. No panic. No searching for the X. FOUR gives you the buttons that save you.</p><div class="mini"><span>✕ CLOSE ALL</span><span>↔ BREAK EVEN</span><span>◐ TAKE PARTIAL</span></div><ul class="list"><li><b>Close All</b> One click and close all trades. All positions closed at once. Done. No leaving one open by mistake.</li><li><b>Break Even</b> Move to break even quicker. One click, SL moves to entry. Now you cannot lose. Trade is free.</li><li><b>Take Partial</b> Our favourite — take partial profits. Lock half, let half run. You bank profit, you stay in the trade, you feel calm.</li></ul><p style="margin-top:10px">Example: <b style="color:#fff">Floating R800. Click TAKE PARTIAL → Bank R400. Move SL to Break Even → Risk = R0. You are safe.</b></p><div class="code">CLOSE ALL → CloseAllNow()<br>BREAK EVEN → SL = Entry<br>TAKE PARTIAL → Close 50% + Bank Profit</div></div>
-<div class="card"><div class="label">Dashboard — Summary</div><h3>7 things, one dashboard</h3><p>Hard Locked + Currency + Notification + Lot + One Trade + Cooldown + Buttons = You cannot blow it.</p><div class="mini"><span>HARD LOCKED</span><span>CURRENCY</span><span>NOTIFICATION</span><span>LOT 0.08</span><span>ONE TRADE</span><span>COOLDOWN</span><span>BUTTONS</span></div></div>
+<div class="card"><div class="label">1 - Hard Locked</div><h3>"I'm your strict friend"</h3><p>FOUR: "Think of me as the friend who takes your keys when you've had enough. I don't argue. I LOCK."</p><ul class="list"><li><b>Daily Loss</b> You hit YOUR loss - R1,000</li><li><b>Daily Profit</b> You hit YOUR target - R4,000</li><li><b>3x SL</b> You lost 3x SL in one day</li><li><b>Daily 3%</b> You hit prop daily 3%</li><li><b>Max 5%</b> You hit prop max 5%</li><li><b>Cooldown</b> You are in 30 min cooldown</li></ul><div class="code">IF Loss >= YOUR Loss → HARD LOCK<br>IF Profit >= YOUR Target → HARD LOCK</div></div>
+<div class="card"><div class="label">2 - Currency</div><h3>"Feel it in YOUR money"</h3><p>FOUR: "$54 loss means nothing. R1,000 loss? NOW you feel it. That's why I show it in ZAR / USD / EUR / GBP."</p><ul class="list"><li><b>SA</b> $54 = R1,000 - you understand Rands</li><li><b>USA</b> $54 = $54</li><li><b>Europe</b> $54 = €50</li><li><b>UK</b> $54 = £42</li></ul></div>
+<div class="card"><div class="label">3 - Notification</div><h3>"I'll always tell you WHY"</h3><p>No guessing. Dashboard tells you: "HARD LOCKED - Daily Loss R1,000 Hit", "BLOCKED - Cooldown 12:34 Left", "NEWS BLOCKED - USD 14:30", "NOT ENOUGH MONEY"</p></div>
+<div class="card"><div class="label">4 - Lot</div><h3>"No 1.00 lot revenge"</h3><p>FOUR: "You made R4,000 on 0.08 lot all week. Then angry, you open 1.00 lot, one loss = R10,000 gone. I lock your lot to 0.08. Try change it - it goes back. LOCKED."</p><div class="code">LOT 0.08 LOCKED<br>TRY CHANGE → BACK TO 0.08</div></div>
+<div class="card"><div class="label">5 - One Trade</div><h3>"One trade a day is enough"</h3><p>FOUR: "First trade: you follow plan, win R800. Second: you chase, lose R1,200. Third: revenge, lose R2,000. Day gone. I say ONE TRADE. Max 1 at a time. No adding."</p></div>
+<div class="card"><div class="label">6 - Cooldown</div><h3>"Breathe first"</h3><p>FOUR: "You planned 1 trade, you took 7. Why? Because after a loss you didn't stop. I force 30 MIN cooldown. BUY / SELL go grey. You walk, breathe, come back calm."</p></div>
 </div>
-<div class="lockbox"><div style="font-size:26px;font-weight:800;color:#fff" id="lockText">No Hard Lock</div><p style="font-size:13px;color:#A9A8A3;margin-top:6px" id="lockSub">Trading Allowed — Dashboard is calm</p><button class="btn btn-primary" onclick="breach()" style="margin-top:14px">Simulate Loss Hit → Lock</button></div>
-<div class="btnrow" style="justify-content:flex-start"><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20Dashboard%20R1500" target="_blank" class="btn btn-primary">Buy Dashboard — R1,500</a><a href="#journal" class="btn btn-ghost">Next: Journal</a></div>
+<div class="chatbox" style="margin-top:20px"><div class="msg four">Still with me? Good.<br><br>Next I want to show you my <b>Journal</b> - that's where I warn you BEFORE you blow it.<span class="time">FOUR • now</span></div><div class="btnrow" style="justify-content:flex-start"><a href="#journal" class="btn btn-primary">Next: Journal →</a></div></div>
 </div>
 
+<!-- JOURNAL -->
 <div class="section" id="journal">
-<div class="kicker">Journal</div>
-<h2>Journal</h2>
-<p class="desc">Flashing, advice, codes, session, indicators, news — everything Journal does for you.</p>
+<div class="kicker">FOUR: Journal</div>
+<h2>"I flash. I warn. I advise."</h2>
 <div class="grid">
-<div class="card" id="flashCard"><div class="label">Blick Flashing Display</div><h3>Profit + Close to Profit</h3><p>When you are close to hitting profit target, Journal flashes: <b style="color:#fff">“Close Profit — You are R200 away.”</b> Gold flash when profit near cap, grey flash when loss near limit.</p><div class="code">FLASH when Profit ≥ 80% of Cap<br>CLOSE PROFIT advice<br>SAFETY CUSHION 3%</div><button class="btn btn-ghost" onclick="document.getElementById('flashCard').classList.toggle('flashdemo')" style="margin-top:12px">Toggle Flash Demo</button></div>
-<div class="card"><div class="label">Advice</div><h3>Advice on Considering Profit</h3><p>• “Consider taking half now — R500 floating”<br>• “Consistency failing — slow down”<br>• “Withdrawable locked — keep cushion 3%”<br>• “Green Days 7/10 — you are consistent”<br>Advice changes live based on your P&L.</p></div>
-<div class="card"><div class="label">Codes</div><h3>Codes of the Day + Motivational Codes</h3><p><b>Winning:</b> LOCK IT • GREEN DAY • CONSISTENT • TARGET HIT — STOP • NO REVENGE<br><br><b>Losing:</b> “YOU SAVED R5,550 BY STOPPING — TOMORROW IS NEW DAY” • “3x SL = DONE — YOU FOLLOWED RULES”</p><div class="code">IF Profit ≥ 80% Cap: “CLOSE PROFIT”<br>IF Loss ≤ 80% Limit: “STOP NOW — TOMORROW NEW DAY”</div></div>
-<div class="card"><div class="label">Session Open</div><h3>Which Session is Currently Open</h3><p>Ticker box shows: SETUP: NONE — SELECT S1 / S2 / S3 or SETUP: S1 BO. And session: ASIAN / LONDON / NY. Ticker line 1 + 2.</p></div>
-<div class="card"><div class="label">Indicators</div><h3>Check With Indicators</h3><p>Before BUY/SELL, Journal checks: Setup selected? Margin enough for 0.08 lot? Cooldown READY? News blocked? Max 1 trade? If any fails: BLOCK + “SELECT SETUP FIRST” or “BLOCKED — COOLDOWN 05:23” or “NOT ENOUGH MONEY”.</p><div class="code">// CHECK: Setup? Margin? Cooldown? News? Indicators?</div></div>
-<div class="card"><div class="label">News</div><h3>News Included</h3><p>News filter: ff_calendar_thisweek.xml, refresh 5 min. Blocks USD / EUR / GBP / JPY / ZAR high news. Shows in ticker. When no news: “No news”.</p></div>
+<div class="card"><div class="label">Flashing</div><h3>Profit + Close to Profit</h3><p>FOUR flashes: "Close Profit - You are R200 away." Gold flash when profit near cap, grey flash when loss near limit.</p></div>
+<div class="card"><div class="label">Advice</div><h3>Live advice</h3><p>"Consider taking half now - R500 floating" / "Consistency failing - slow down" / "Green Days 7/10 - you are consistent"</p></div>
+<div class="card"><div class="label">Codes</div><h3>Codes of the Day</h3><p><b>Winning:</b> LOCK IT • GREEN DAY • TARGET HIT - STOP • NO REVENGE<br><br><b>Losing:</b> "YOU SAVED R5,550 BY STOPPING - TOMORROW IS NEW DAY"</p></div>
+<div class="card"><div class="label">Session + News</div><h3>Session & News</h3><p>Ticker: SETUP: S1 BO / Session: LONDON Open. News filter blocks USD/EUR/GBP high news. Shows in ticker. No news = "No news".</p></div>
 </div>
-<div class="btnrow" style="justify-content:flex-start"><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20Journal%20R2500" target="_blank" class="btn btn-primary">Buy Journal — R2,500</a><a href="#signal" class="btn btn-ghost">Next: Signal</a></div>
+<div class="chatbox" style="margin-top:20px"><div class="msg four">And I check everything before you click BUY.<br><br>Setup? Margin? Cooldown? News? Max 1 trade?<br><br>If one fails - I BLOCK you. And I tell you why.<span class="time">FOUR • now</span></div></div>
 </div>
 
+<!-- SIGNAL -->
 <div class="section" id="signal">
-<div class="kicker">Signal</div>
-<h2>Signal</h2>
-<p class="desc">S1 BO / S2 FB / S3 CD on WhatsApp.</p>
-<div class="grid grid3">
-<div class="card"><div class="label">S1 BO</div><h3>Breakout</h3><p>When price breaks structure. Signal: S1 BO BUY Gold @ 2650 SL 2640 TP 2670 LOT 0.08. You click S1 BO on EA, then BUY. EA locks lot + SL.</p></div>
-<div class="card"><div class="label">S2 FB</div><h3>Fake Break</h3><p>When fake break happens. Signal: S2 FB SELL Gold. You click S2 FB, EA ready.</p></div>
+<div class="kicker">FOUR: Signal</div>
+<h2>"I give you the setup.<br>You just click it."</h2>
+<p class="desc">S1 BO / S2 FB / S3 CD on WhatsApp +27 72 577 8727. No Telegram needed.</p>
+<div class="grid">
+<div class="card"><div class="label">S1 BO</div><h3>Breakout</h3><p>S1 BO BUY Gold @ 2650 SL 2640 TP 2670 LOT 0.08. You click S1 BO on EA, then BUY. EA locks lot + SL.</p></div>
+<div class="card"><div class="label">S2 FB</div><h3>Fake Break</h3><p>When fake break happens. Signal: S2 FB SELL Gold. Click S2 FB, EA ready.</p></div>
 <div class="card"><div class="label">S3 CD</div><h3>Continuation</h3><p>Pullback continuation. Signal: S3 CD BUY EURUSD. Click S3 CD.</p></div>
 </div>
-<div class="card" style="margin-top:14px"><h3>How you get signals</h3><p>Direct on WhatsApp +27 72 577 8727 — No Telegram needed. You get Setup + Entry + SL + TP + LOT. You click that Setup on EA (S1 / S2 / S3). EA checks margin, cooldown, hard lock, news. If all good: OPENED S1 BO LOT 0.08 SL R1,000 COOLDOWN 30 MIN STARTED.</p></div>
-<div class="btnrow" style="justify-content:flex-start"><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20Signal%20R3599" target="_blank" class="btn btn-primary">Buy Signal — R3,599</a><a href="#pricing" class="btn btn-ghost">Next: Bundle</a></div>
+<div class="chatbox" style="margin-top:20px"><div class="msg four">You get Setup + Entry + SL + TP + LOT on WhatsApp.<br><br>You click that Setup on EA. I check everything. If all good: <b>"OPENED S1 BO LOT 0.08 SL R1,000 COOLDOWN 30 MIN STARTED."</b><span class="time">FOUR • now</span></div></div>
 </div>
 
+<!-- CALCULATOR -->
 <div class="section" id="calc">
-<div class="kicker">Calculator</div>
-<h2>Your numbers,<br>calculated for you.</h2>
-<p class="desc">Don't use prop firm's loss. Use your loss. Type balance, pick your daily loss. FOUR blocks you there.</p>
+<div class="kicker">FOUR: Calculator</div>
+<h2>"Let's do YOUR numbers."</h2>
+<p class="desc">FOUR: "Don't use prop firm's loss. Use YOUR loss. Type balance, pick your loss. I'll block you there."</p>
 <div class="calc">
 <label>Your Balance</label><input type="number" id="balInput" value="10000" oninput="calc()">
-<label>Your Currency</label><select id="curSelect" onchange="calc()"><option value="USD">USD — Dollar ($)</option><option value="ZAR" selected>ZAR — Rand (R) — 18.50</option><option value="EUR">EUR — Euro (€)</option><option value="GBP">GBP — Pound (£)</option></select>
-<label>Your Account Type</label><select id="typeSelect" onchange="calc()"><option value="prop">Prop Firm — FTMO / Funding Pips / E8 (3% Daily / 5% Max)</option><option value="personal">Personal — Same Safe Rules (3% / 5%)</option><option value="small">Small Account — Extra Safe (2% Daily / 4% Max)</option></select>
+<label>Your Currency</label><select id="curSelect" onchange="calc()"><option value="USD">USD — Dollar ($)</option><option value="ZAR" selected>ZAR — Rand (R)</option><option value="EUR">EUR — Euro (€)</option><option value="GBP">GBP — Pound (£)</option></select>
+<label>Your Account Type</label><select id="typeSelect" onchange="calc()"><option value="prop">Prop Firm — FTMO / Funding Pips / E8 (3% Daily / 5% Max)</option><option value="personal">Personal — Same Safe Rules (3% / 5%)</option><option value="small">Small Account — Extra Safe (2% / 4%)</option></select>
 <label>Your Own Daily Loss Limit</label><input type="number" id="myLossInput" value="1000" oninput="calc()">
 <label>Your Own Daily Profit Target</label><input type="number" id="myTargetInput" value="4000" oninput="calc()">
-<div class="result"><div><b id="rDaily">R5,550</b><span>Prop Daily 3% — Firm Limit</span></div><div><b id="rMax">R9,250</b><span>Prop Max 5% — Firm Limit</span></div><div><b id="rMyLoss">R1,000</b><span>Your Loss — FOUR Stops You Here</span></div><div><b id="rMyTarget">R4,000</b><span>Your Target — FOUR Locks Profit</span></div><div><b id="rCushion">R5,550</b><span>Safety Cushion 3% — Must Stay</span></div><div><b id="rCons">PASS</b><span>Consistency — Calculated Live</span></div></div>
+<div class="result"><div><b id="rDaily">R5,550</b><span>Prop Daily 3%</span></div><div><b id="rMax">R9,250</b><span>Prop Max 5%</span></div><div><b id="rMyLoss">R1,000</b><span>Your Loss - FOUR Stops</span></div><div><b id="rMyTarget">R4,000</b><span>Your Target - FOUR Locks</span></div><div><b id="rCushion">R5,550</b><span>Safety Cushion 3%</span></div><div><b id="rCons">PASS</b><span>Consistency</span></div></div>
 <label style="margin-top:16px;display:block">Try It: How Much Did You Lose Today?</label><input type="number" id="lostInput" value="0" oninput="calc()">
 <p id="verdict" style="font-size:15px;font-weight:700;color:#8FB996;margin-top:8px">Safe — You can still trade.</p><p id="consVerdict" style="font-size:13px;color:#A9A8A3;margin-top:6px"></p><div class="code" id="calcCode"></div>
 <button class="btn btn-primary" style="width:100%;margin-top:14px" onclick="buy('I used calculator - Balance '+document.getElementById('balInput').value+' - My Loss '+document.getElementById('myLossInput').value+' - I want FOUR')">Get FOUR To Stop Me — R4,999</button>
 </div>
+<div class="chatbox" style="margin-top:20px"><div class="msg four">See that? Prop would let you lose R5,550.<br><br>I stop you at <b>YOUR R1,000</b>. You just saved R4,550.<br><br>That's why you need me.<span class="time">FOUR • now</span></div></div>
 </div>
 
+<!-- PRICING -->
 <div class="section" id="pricing">
-<div class="kicker">Pricing</div>
-<h2>Stop blowing.<br>Start passing.</h2>
-<p class="desc">One blown challenge = R1,500 — R5,000 lost. FOUR Bundle = R4,999 once-off. Cheaper than one more blow.</p>
+<div class="kicker">FOUR: Pricing</div>
+<h2>"So... are we doing this?"</h2>
+<p class="desc">FOUR: "One blown challenge = R1,500 - R5,000 lost. My Bundle = R4,999 once-off. Cheaper than one more blow."</p>
 <div class="grid">
 <div class="card"><div class="label">Dashboard</div><h3>Dashboard</h3><div class="price">R1,500</div><p>Hard Lock + Currency + Notification + Lot + One Trade + Cooldown + Buttons.</p><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20Dashboard%20R1500" target="_blank" class="btn btn-primary" style="width:100%;margin-top:12px">Buy — R1,500</a></div>
 <div class="card"><div class="label">Journal</div><h3>Journal</h3><div class="price">R2,500</div><p>Flashing profit, codes, advice, session, indicators, news.</p><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20Journal%20R2500" target="_blank" class="btn btn-primary" style="width:100%;margin-top:12px">Buy — R2,500</a></div>
 <div class="card"><div class="label">Signal</div><h3>Signal</h3><div class="price">R3,599</div><p>S1 BO / S2 FB / S3 CD on WhatsApp.</p><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20Signal%20R3599" target="_blank" class="btn btn-primary" style="width:100%;margin-top:12px">Buy — R3,599</a></div>
-<div class="card bundle"><div class="label">Best — Save R2,600</div><h3>Full Bundle — All 3</h3><div class="price">R4,999 <s style="color:#7C7B77">R7,599</s></div><p>EA that stops you + Dashboard + Journal + Signals</p><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20BUNDLE%20R4999%20-%20All%203" target="_blank" class="btn btn-primary" style="width:100%;margin-top:12px">Stop Me Now — R4,999</a></div>
+<div class="card bundle"><div class="label">Best — Save R2,600</div><h3>Full Bundle — All 3</h3><div class="price">R4,999 <s>R7,599</s></div><p>EA that stops you + Dashboard + Journal + Signals</p><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20BUNDLE%20R4999" target="_blank" class="btn btn-primary" style="width:100%;margin-top:12px">Stop Me Now — R4,999</a></div>
 </div>
-<div class="contact" style="margin-top:24px"><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20FOUR." target="_blank">WhatsApp — +27 72 577 8727</a><a href="mailto:fourembedded@gmail.com?subject=I%20Want%20FOUR&body=Hi%20FOUR%2C%0A%0AI%20want%3A%20" target="_blank">fourembedded@gmail.com</a></div>
+<div class="chatbox" style="margin-top:22px"><div class="msg four">So... what do you say?<br><br>Are you going to keep doing this alone?<br><br>Or are you finally going to let me help you?<br><br>I'm waiting. I've always been waiting.<span class="time">FOUR • now</span></div>
+<div class="msg you">Okay FOUR. Let's do this. Stop me from blowing again. 🙏<span class="time">You • now</span></div>
+<div class="msg four">Good choice. ❤️<br><br>Click below. Message me on WhatsApp.<br><br>Tomorrow is a new day. And this time, you won't be alone.<span class="time">FOUR • now</span></div>
+<div class="btnrow"><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20finally%20admit%20I%20need%20you.%20I%20want%20BUNDLE%20R4999" target="_blank" class="btn btn-primary">Message FOUR on WhatsApp →</a></div>
+</div>
+<div class="contact" style="margin-top:16px"><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20FOUR." target="_blank">WhatsApp — +27 72 577 8727</a><a href="mailto:fourembedded@gmail.com?subject=I%20Want%20FOUR" target="_blank">fourembedded@gmail.com</a></div>
 </div>
 </div>
 
-<footer><b style="color:#fff;font-family:Playfair Display,serif">FOUR — EMBEDDED</b> &nbsp;|&nbsp; THE L FAMILY PROPERTY<br>WhatsApp: <a href="https://wa.me/27725778727">+27 72 577 8727</a> &nbsp;|&nbsp; Email: <a href="mailto:fourembedded@gmail.com">fourembedded@gmail.com</a><br><a href="#top">Home</a> &nbsp;|&nbsp; <a href="#dashboard">Dashboard</a> &nbsp;|&nbsp; <a href="#journal">Journal</a> &nbsp;|&nbsp; <a href="#signal">Signal</a> &nbsp;|&nbsp; <a href="#pricing">Pricing</a><br>Hard Lock + Cooldown = You Cannot Revenge Trade.</footer>
-<div class="stickybuy"><div><b style="color:#fff">Bundle R4,999</b><div style="font-size:11px;color:#A9A8A3">+27 72 577 8727</div></div><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20BUNDLE%20R4999" target="_blank" class="btn btn-primary" style="flex:1;text-align:center;max-width:320px">Lock Me Now</a></div>
+<footer><b style="color:#fff;font-family:Playfair Display,serif">FOUR — EMBEDDED</b> | THE L FAMILY PROPERTY<br>WhatsApp: <a href="https://wa.me/27725778727">+27 72 577 8727</a> | Email: <a href="mailto:fourembedded@gmail.com">fourembedded@gmail.com</a><br>Hard Lock + Cooldown = You Cannot Revenge Trade.</footer>
+<div class="stickybuy"><div><b style="color:#fff">FOUR is waiting</b><div style="font-size:11px;color:#A9A8A3">Bundle R4,999</div></div><a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20finally%20admit%20I%20need%20you" target="_blank" class="btn btn-primary" style="flex:1;max-width:320px">Talk To FOUR</a></div>
 <script>
 const WA="27725778727";
-function buy(p){window.open("https://wa.me/"+WA+"?text="+encodeURIComponent("Hi FOUR, I want: "+p)," _blank");}
-function breach(){let t=document.getElementById("lockText"),s=document.getElementById("lockSub");t.textContent="HARD LOCKED";s.textContent="Trading Not Allowed Today — Dashboard is Locked";setTimeout(()=>{t.textContent="No Hard Lock";s.textContent="Trading Allowed — Dashboard is calm";},1800);}
+function buy(p){window.open("https://wa.me/"+WA+"?text="+encodeURIComponent("Hi FOUR, I want: "+p),"_blank");}
 function fmt(n,cur){let sym=cur=="USD"?"$":cur=="ZAR"?"R":cur=="EUR"?"€":"£";return sym+Math.round(n).toLocaleString();}
-function calc(){let bal=parseFloat(document.getElementById("balInput").value)||0;let cur=document.getElementById("curSelect").value;let type=document.getElementById("typeSelect").value;let myLoss=parseFloat(document.getElementById("myLossInput").value)||0;let myTarget=parseFloat(document.getElementById("myTargetInput").value)||0;let lost=parseFloat(document.getElementById("lostInput").value)||0;let dailyPct = type=="small"?0.02:0.03;let maxPct = type=="small"?0.04:0.05;let daily = bal*dailyPct, max = bal*maxPct, cushion = bal*0.03;document.getElementById("rDaily").textContent=fmt(daily,cur);document.getElementById("rMax").textContent=fmt(max,cur);document.getElementById("rMyLoss").textContent=fmt(myLoss,cur);document.getElementById("rMyTarget").textContent=fmt(myTarget,cur);document.getElementById("rCushion").textContent=fmt(cushion,cur);document.getElementById("rCons").textContent=(myTarget>0 && myTarget > bal*0.04) ? "FAIL — Too Spiky" : "PASS";let v=document.getElementById("verdict");if(myLoss>0 && lost>=myLoss){v.textContent="Hard Locked — FOUR blocked you at your loss of "+fmt(myLoss,cur)+". Prop would have let you lose "+fmt(daily,cur)+". You saved "+fmt(daily-myLoss,cur); v.style.color="#D4B06A";}else if(myLoss>0 && lost>=myLoss*0.8){v.textContent="Warning — You are at 80% of your loss. FOUR flashes. Stop now."; v.style.color="#E9DDC3";}else {v.textContent="Safe — You can still trade. FOUR says No Hard Lock."; v.style.color="#8FB996";}document.getElementById("consVerdict").textContent="Consistency Live: Your target "+fmt(myTarget,cur)+" is "+(bal>0?Math.round(myTarget/bal*100):0)+"% of balance. Prop firms fail you if one day > 30-40% of total. FOUR calculates this on the spot.";document.getElementById("calcCode").innerHTML="// YOUR ACCOUNT: "+fmt(bal,cur)+" ("+cur+")<br>// YOUR LOSS: "+fmt(myLoss,cur)+" — FOUR BLOCKS HERE<br>// PROP LIMIT: "+fmt(daily,cur)+" — FOUR STOPS YOU BEFORE PROP DOES<br>// YOUR TARGET: "+fmt(myTarget,cur)+" — FOUR LOCKS PROFIT HERE";}
+function calc(){let bal=parseFloat(document.getElementById("balInput").value)||0;let cur=document.getElementById("curSelect").value;let type=document.getElementById("typeSelect").value;let myLoss=parseFloat(document.getElementById("myLossInput").value)||0;let myTarget=parseFloat(document.getElementById("myTargetInput").value)||0;let lost=parseFloat(document.getElementById("lostInput").value)||0;let dailyPct=type=="small"?0.02:0.03;let maxPct=type=="small"?0.04:0.05;let daily=bal*dailyPct,max=bal*maxPct,cushion=bal*0.03;document.getElementById("rDaily").textContent=fmt(daily,cur);document.getElementById("rMax").textContent=fmt(max,cur);document.getElementById("rMyLoss").textContent=fmt(myLoss,cur);document.getElementById("rMyTarget").textContent=fmt(myTarget,cur);document.getElementById("rCushion").textContent=fmt(cushion,cur);document.getElementById("rCons").textContent=(myTarget>0&&myTarget>bal*0.04)?"FAIL":"PASS";let v=document.getElementById("verdict");if(myLoss>0&&lost>=myLoss){v.textContent="Hard Locked — FOUR blocked you at "+fmt(myLoss,cur)+". You saved "+fmt(daily-myLoss,cur);v.style.color="#D4B06A";}else if(myLoss>0&&lost>=myLoss*0.8){v.textContent="Warning — 80% of your loss. FOUR flashes. Stop now.";v.style.color="#E9DDC3";}else{v.textContent="Safe — You can still trade. FOUR says No Hard Lock.";v.style.color="#8FB996";}document.getElementById("consVerdict").textContent="Consistency: Your target "+fmt(myTarget,cur)+" is "+(bal>0?Math.round(myTarget/bal*100):0)+"% of balance.";document.getElementById("calcCode").innerHTML="// YOUR: "+fmt(bal,cur)+" ("+cur+")<br>// YOUR LOSS: "+fmt(myLoss,cur)+" — FOUR BLOCKS HERE<br>// PROP LIMIT: "+fmt(daily,cur)+" — FOUR STOPS YOU BEFORE";}
 calc();
 </script>
 </body>
