@@ -120,7 +120,7 @@ footer b{color:#fff}
 </style>
 </head>
 <body>
-<div class="topbar"><b>FOUR — EMBEDDED</b> &nbsp;|&nbsp; Works Worldwide • Card • Bank Transfer • PayPal • Wise</div>
+<div class="topbar"><b>FOUR — EMBEDDED</b> &nbsp;|&nbsp; Works Worldwide • Card • Bank Transfer • PayPal • Wise • SWIFT</div>
 <div class="nav"><div class="logo">FOUR<i>.</i><small>EMBEDDED</small></div><div style="display:flex;gap:10px;align-items:center"><div class="currency"><button id="btnUSD" onclick="setCurrency('USD')">USD $</button><button id="btnZAR" class="active" onclick="setCurrency('ZAR')">ZAR R</button></div><a href="https://wa.me/27725778727" target="_blank" class="btn btn-dark" style="padding:9px 14px">Contact</a></div></div>
 
 <div class="sapopup" id="saPopup"><div class="sabox"><div style="font-size:26px">🇿🇦</div><h3>South Africa Detected</h3><p>Show prices in <b>Rand (R)</b>?</p><div style="display:flex;gap:8px;margin-top:14px"><button class="btn btn-dark" onclick="confirmSA(true)" style="flex:1">Yes, Rands</button><button class="btn btn-outline" onclick="confirmSA(false)" style="flex:1">Keep $</button></div></div></div>
@@ -136,14 +136,14 @@ footer b{color:#fff}
 <option value="NG">🇳🇬 Nigeria — Bank Transfer / Card</option>
 <option value="KE">🇰🇪 Kenya — M-Pesa / Bank Transfer</option>
 <option value="GH">🇬🇭 Ghana — Bank Transfer / Card</option>
-<option value="OTHER">🌍 Other Country — Card / PayPal / Wise</option>
+<option value="OTHER">🌍 Other Country — Card / PayPal / Wise / SWIFT</option>
 </select>
 <div id="countryHint" style="font-size:12px;color:#64748B;margin-top:8px;background:#F8FAFC;padding:8px 10px;border-radius:8px">In SA, EFT = bank transfer. Same thing, different name.</div>
 
 <div class="pay-tabs">
 <button id="tabCard" class="active" onclick="showPayTab('card')">💳 Card</button>
 <button id="tabEft" onclick="showPayTab('eft')">🏦 Bank Transfer</button>
-<button id="tabIntl" onclick="showPayTab('intl')">🌍 PayPal / Wise</button>
+<button id="tabIntl" onclick="showPayTab('intl')">🌍 PayPal / Wise / SWIFT</button>
 </div>
 
 <div id="payCard">
@@ -158,9 +158,12 @@ footer b{color:#fff}
 <b>Bank:</b> <span id="bankName">Capitec Bank</span><br>
 <b>Account Name:</b> <span id="accName">FOUR EMBEDDED (SIZWE M)</span><br>
 <b>Account Number:</b> <span id="accNum">2557076496</span> <button class="copy-btn" onclick="copyAcc()">Copy</button><br>
-<b>Branch / Sort / Routing:</b> <span id="branchCode">470010</span><br>
+<b>Branch Code:</b> <span id="branchCode">470010</span><br>
+<b>SWIFT / BIC:</b> <span id="swiftCode">CABLZAJJ</span> <button class="copy-btn" onclick="copySwift()">Copy</button><br>
+<b>Bank Address:</b> Capitec Bank, 5 Neutron Road, Techno Park, Stellenbosch, 7600, South Africa<br>
 <b>Reference:</b> <span id="payRef">FOUR-BUNDLE</span> <button class="copy-btn" onclick="copyRef()">Copy</button><br>
-<b>Amount:</b> <span id="payAmt">R4,999</span>
+<b>Amount:</b> <span id="payAmt">R4,999</span><br>
+<span style="font-size:12px;color:#64748B">SA has no IBAN. For international wire, use SWIFT + Account Number above.</span>
 </div>
 <p style="margin-top:10px;font-size:12.5px">1. Transfer the amount.<br>2. Send proof on WhatsApp.<br>3. Get FOUR instantly.</p>
 <a id="waProofBtn" href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20paid%20for%20BUNDLE" target="_blank" class="btn btn-gold" style="width:100%">Send Proof on WhatsApp →</a>
@@ -171,10 +174,16 @@ footer b{color:#fff}
 <b>International — Easiest:</b><br>
 <b>1. PayPal:</b> <span id="paypalEmail">fourembedded@gmail.com</span> <button class="copy-btn" onclick="copyPaypal()">Copy</button><br>
 <b>2. Wise:</b> Send to same email / bank details above. Wise converts to Rand automatically.<br>
-<b>3. SWIFT Wire:</b> Ask FOUR on WhatsApp for SWIFT / IBAN details.<br>
-<span style="color:#64748B;font-size:12px">Card is fastest for international. PayPal / Wise takes 2-5 min.</span>
+<b>3. SWIFT Wire:</b><br>
+Bank: Capitec Bank<br>
+Account Name: FOUR EMBEDDED (SIZWE M)<br>
+Account Number: 2557076496<br>
+Branch Code: 470010<br>
+SWIFT / BIC: <b>CABLZAJJ</b> <button class="copy-btn" onclick="copySwift()">Copy</button><br>
+Bank Address: 5 Neutron Road, Techno Park, Stellenbosch, 7600, South Africa<br>
+<span style="color:#64748B;font-size:12px">Card is fastest for international. SWIFT takes 1-3 working days. PayPal / Wise takes 2-5 min.</span>
 </div>
-<a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20to%20pay%20from%20another%20country" target="_blank" class="btn btn-dark" style="width:100%;margin-top:10px">Ask FOUR For SWIFT / IBAN →</a>
+<a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20to%20pay%20from%20another%20country" target="_blank" class="btn btn-dark" style="width:100%;margin-top:10px">Ask FOUR For Help →</a>
 </div>
 
 <button onclick="closePay()" class="btn btn-outline" style="width:100%;margin-top:12px">Close</button>
@@ -310,7 +319,7 @@ footer b{color:#fff}
 <h2>Pick your protection.</h2>
 <p class="d">One blown challenge = <span class="pval" data-usd="81" data-zar="1500">$81</span> – <span class="pval" data-usd="270" data-zar="5000">$270</span>. Pay once.</p>
 <div class="pricing-wrap">
-<div class="pricing-top"><div><h3 style="font-family:'Playfair Display',serif;font-size:18px">Simple pricing.</h3><p style="font-size:12.5px;color:#64748B">SA: EFT / SnapScan • USA: ACH / Wire • UK: Faster Payments • EU: SEPA • Everyone: Card / PayPal / Wise</p></div><div class="pricing-toggle"><button id="toggleUSD" onclick="setCurrency('USD')">USD $</button><button id="toggleZAR" class="active" onclick="setCurrency('ZAR')">ZAR R</button></div></div>
+<div class="pricing-top"><div><h3 style="font-family:'Playfair Display',serif;font-size:18px">Simple pricing.</h3><p style="font-size:12.5px;color:#64748B">SA: EFT / SnapScan • USA: ACH / Wire • UK: Faster Payments • EU: SEPA • Everyone: Card / PayPal / Wise / SWIFT</p></div><div class="pricing-toggle"><button id="toggleUSD" onclick="setCurrency('USD')">USD $</button><button id="toggleZAR" class="active" onclick="setCurrency('ZAR')">ZAR R</button></div></div>
 <div class="sleek-grid">
 <div class="sleek"><div class="plan">DASHBOARD — EA PROTECTION</div><h3>Stop Blowing</h3><div class="price-line"><span class="pval" data-usd="81" data-zar="1500">$81</span></div><div class="once">ONCE-OFF • LIFETIME</div><ul><li>Hard Lock — Auto lock at loss / target</li><li>Cooldown — 30 min after every trade</li><li>Risk Lock — Risk stays R500, no revenge size</li><li>One Trade At A Time</li><li>Daily Limit Enforced</li><li>Currency Feel — ZAR / USD / EUR / GBP</li><li class="muted">Journal + Signals NOT included</li></ul><button onclick="payFor('dashboard')" class="btn btn-dark">Pay — <span class="pval" data-usd="81" data-zar="1500">$81</span> 🔒</button><div class="pay-note">Card / Bank Transfer / PayPal →</div></div>
 <div class="sleek hot"><span class="hot-badge">★ BEST VALUE — SAVE <span class="pval" data-usd="141" data-zar="2600">$141</span></span><div class="plan">FULL BUNDLE — ALL 3</div><h3>Complete EA</h3><div class="price-line"><span class="pval" data-usd="270" data-zar="4999">$270</span> <s><span class="pval" data-usd="411" data-zar="7599">$411</span></s></div><div class="once">ONCE-OFF • LIFETIME</div><span class="save-pill">Save <span class="pval" data-usd="141" data-zar="2600">$141</span> vs separately</span><ul><li>ALL Dashboard: Hard Lock + Cooldown + Risk Lock</li><li>ALL Journal: S1 / S2 / S3 + Flashing + News + Advice</li><li>ALL Signals: Entry + SL + TP + Risk</li><li>Rules Live + Pin Message + Calculator</li><li>Priority Support + Free Updates</li></ul><button onclick="payFor('bundle')" class="btn btn-gold">Pay — <span class="pval" data-usd="270" data-zar="4999">$270</span> 🔒</button><div class="pay-note" style="color:#94A3B8">Card / Bank Transfer / PayPal →</div></div>
@@ -318,8 +327,8 @@ footer b{color:#fff}
 </div>
 <div class="eft-box" style="margin-top:14px;text-align:center">
 <b>Can other countries do EFT? Yes — same thing, different name.</b><br>
-<span style="color:#64748B">🇿🇦 SA = EFT &nbsp;•&nbsp; 🇺🇸 USA = ACH / Wire &nbsp;•&nbsp; 🇬🇧 UK = Faster Payments &nbsp;•&nbsp; 🇪🇺 EU = SEPA &nbsp;•&nbsp; 🌍 Everyone = Card / PayPal / Wise</span><br>
-<span style="font-size:12px">Easiest for international = <b>Card</b>. It works in 1 minute, no bank details needed.</span>
+<span style="color:#64748B">🇿🇦 SA = EFT &nbsp;•&nbsp; 🇺🇸 USA = ACH / Wire &nbsp;•&nbsp; 🇬🇧 UK = Faster Payments &nbsp;•&nbsp; 🇪🇺 EU = SEPA &nbsp;•&nbsp; 🌍 Everyone = Card / PayPal / Wise / SWIFT</span><br>
+<span style="font-size:12px">SWIFT / BIC: <b>CABLZAJJ</b> — For international wire to Capitec.</span>
 </div>
 <div style="text-align:center;margin-top:16px"><button onclick="payFor('bundle')" class="btn btn-dark">Pay For Bundle Now 🔒</button></div>
 </div>
@@ -341,6 +350,7 @@ const BANK = {
   name: "FOUR EMBEDDED (SIZWE M)",
   number: "2557076496",
   branch: "470010",
+  swift: "CABLZAJJ",
   paypal: "fourembedded@gmail.com"
 };
 // ============================================
@@ -360,6 +370,7 @@ function payFor(plan){
   document.getElementById('accName').textContent = BANK.name;
   document.getElementById('accNum').textContent = BANK.number;
   document.getElementById('branchCode').textContent = BANK.branch;
+  document.getElementById('swiftCode').textContent = BANK.swift;
   document.getElementById('paypalEmail').textContent = BANK.paypal;
   document.getElementById('waProofBtn').href = "https://wa.me/27725778727?text=" + encodeURIComponent("Hi FOUR, I paid for " + plan.toUpperCase() + " " + amt + " — Here is my proof");
   updateCountryPay();
@@ -370,19 +381,19 @@ function updateCountryPay(){
   let c = document.getElementById('countrySelect').value;
   let hints = {
     ZA: "In SA, EFT = bank transfer. Use EFT / SnapScan tab. Instant EFT works too.",
-    US: "In USA, EFT = ACH / Wire. Use Bank Transfer tab, or Card for instant. Ask FOUR for routing number on WhatsApp.",
-    UK: "In UK, EFT = Faster Payments / Bank Transfer. Use Bank Transfer tab, or Card for instant. Ask FOUR for Sort Code.",
-    EU: "In Europe, EFT = SEPA Transfer. Use Bank Transfer tab, or Card for instant. Ask FOUR for IBAN.",
+    US: "In USA, EFT = ACH / Wire. Use Bank Transfer tab, or Card for instant. SWIFT: CABLZAJJ for wire.",
+    UK: "In UK, EFT = Faster Payments / Bank Transfer. Use Bank Transfer tab, or Card for instant. SWIFT: CABLZAJJ for wire.",
+    EU: "In Europe, EFT = SEPA Transfer. Use Bank Transfer tab, or Card for instant. SWIFT: CABLZAJJ for wire.",
     NG: "In Nigeria, use Bank Transfer or Card via Paystack. Paystack works in Nigeria.",
     KE: "In Kenya, use M-Pesa / Bank Transfer. Or Card for instant.",
     GH: "In Ghana, use Bank Transfer or Card via Paystack.",
-    OTHER: "Easiest for you = Card or PayPal / Wise. Works in every country in 1 minute."
+    OTHER: "Easiest for you = Card or PayPal / Wise. SWIFT wire also works: CABLZAJJ."
   };
   let labels = {
     ZA: "Bank Transfer — South Africa (EFT):",
-    US: "Bank Transfer — USA (ACH / Wire):",
-    UK: "Bank Transfer — UK (Faster Payments):",
-    EU: "Bank Transfer — Europe (SEPA):",
+    US: "Bank Transfer — USA (ACH / Wire / SWIFT):",
+    UK: "Bank Transfer — UK (Faster Payments / SWIFT):",
+    EU: "Bank Transfer — Europe (SEPA / SWIFT):",
     NG: "Bank Transfer — Nigeria:",
     KE: "Bank Transfer — Kenya (M-Pesa / Bank):",
     GH: "Bank Transfer — Ghana:",
@@ -405,6 +416,7 @@ function openPayLink(){
   else { showPayTab('eft'); alert("Card link not added yet — use Bank Transfer / PayPal tab. Paste your Paystack / Stripe link in PAY_LINKS."); }
 }
 function copyAcc(){ navigator.clipboard.writeText(BANK.number); alert("Copied: " + BANK.number); }
+function copySwift(){ navigator.clipboard.writeText(BANK.swift); alert("Copied SWIFT: " + BANK.swift); }
 function copyRef(){ let r=document.getElementById('payRef').textContent; navigator.clipboard.writeText(r); alert("Copied: " + r); }
 function copyPaypal(){ navigator.clipboard.writeText(BANK.paypal); alert("Copied: " + BANK.paypal); }
 function closePay(){ document.getElementById('payModal').classList.remove('show'); }
