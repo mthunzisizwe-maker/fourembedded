@@ -3,496 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FOUR — Trade Better</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0f172a">
+<meta name="description" content="FOUR Embedded — trading discipline and risk protection tools for MT5 traders.">
+<title>FOUR — Embedded | Trade Better</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
+:root{--navy:#0f172a;--ink:#172033;--muted:#64748b;--gold:#c9a86a;--gold-dark:#926f2d;--line:#e7ebf0;--soft:#f8fafc;--cream:#fef9e7;--green:#15803d;--red:#b91c1c;--shadow:0 14px 34px rgba(15,23,42,.08)}
 *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
-body{background:#fff;color:#0F172A;font-family:Inter,sans-serif;line-height:1.6}
-a{color:inherit;text-decoration:none}
-.topbar{background:#0F172A;color:#CBD5E1;font-size:11px;text-align:center;padding:7px 12px}
-.topbar b{color:#C9A86A}
-.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #EDEFF2;display:flex;justify-content:space-between;align-items:center;padding:14px 18px}
-.logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:800}.logo i{color:#C9A86A;font-style:normal}.logo small{display:block;font-family:Inter,sans-serif;font-size:8px;letter-spacing:2px;color:#94A3B8;font-weight:700}
-.currency{display:flex;background:#F1F5F9;border-radius:99px;padding:3px}
-.currency button{border:none;background:transparent;padding:6px 11px;border-radius:99px;font-size:12px;font-weight:700;cursor:pointer;color:#64748B}
-.currency button.active{background:#0F172A;color:#fff}
-.wrap{max-width:680px;margin:auto;padding:0 18px}
-.hero{padding:44px 0 28px;text-align:center}
-.eyebrow{display:inline-flex;gap:6px;background:#FEF9E7;border:1px solid #FDE68A;padding:6px 11px;border-radius:99px;font-size:11px;font-weight:700;color:#92400E}
-.hero h1{font-family:'Playfair Display',serif;font-size:40px;line-height:1.05;margin:16px 0;font-weight:800}
-@media(min-width:700px){.hero h1{font-size:50px}}
-.hero h1 em{color:#C9A86A;font-style:normal}
-.hero p{color:#64748B;font-size:15px;max-width:520px;margin:auto}
-.btn{padding:13px 20px;border-radius:12px;font-weight:700;font-size:14px;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
-.btn-dark{background:#0F172A;color:#fff}.btn-gold{background:#C9A86A;color:#fff}.btn-outline{background:#fff;color:#0F172A;border:1px solid #E2E8F0}
-.btnrow{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
-.trust{font-size:12px;color:#94A3B8;margin-top:16px;font-weight:600}
-.divider{height:1px;background:#EDEFF2}
-.section{padding:36px 0}
-.kick{font-size:11px;font-weight:800;letter-spacing:2px;color:#C9A86A}
-.section h2{font-family:'Playfair Display',serif;font-size:28px;line-height:1.15;margin:8px 0}
-.section p.d{color:#64748B;font-size:14px;max-width:560px}
-.grid{display:grid;gap:12px;margin-top:16px}
-@media(min-width:650px){.grid{grid-template-columns:1fr 1fr}}
-.card{background:#fff;border:1px solid #EDEFF2;border-radius:16px;padding:18px}
-.card h3{font-size:15px;margin:8px 0 4px}.card p{font-size:13.5px;color:#64748B;line-height:1.6}
-.card .n{font-size:10px;font-weight:800;letter-spacing:1px;color:#C9A86A}
-.chat{margin:18px 0}
-.msg{max-width:85%;padding:12px 14px;border-radius:14px;font-size:14px;line-height:1.6;margin:8px 0}
-.msg.four{background:#F8FAFC;border:1px solid #EDEFF2;border-bottom-left-radius:4px}
-.msg.you{background:#0F172A;color:#fff;margin-left:auto;border-bottom-right-radius:4px}
-.msg .t{font-size:11px;color:#94A3B8;display:block;margin-top:4px}
-.facts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
-.facts div{background:#0F172A;color:#fff;padding:16px 8px;border-radius:14px;text-align:center}.facts div:nth-child(2){background:#FEF9E7;color:#0F172A;border:1px solid #FDE68A}.facts div:nth-child(3){background:#F8FAFC;color:#0F172A;border:1px solid #EDEFF2}.facts b{display:block;font-size:20px}.facts span{font-size:11px;color:#94A3B8}.facts div:nth-child(2) span{color:#92400E}
-.calc{background:#F8FAFC;border:1px solid #EDEFF2;border-radius:16px;padding:18px;margin-top:16px}
-input,select{width:100%;padding:11px 13px;border-radius:10px;background:#fff;border:1px solid #E2E8F0;font-size:14px;font-weight:600;margin:5px 0;outline:none}
-label{font-size:11px;color:#94A3B8;font-weight:700;letter-spacing:.5px}
-.res{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}.res div{background:#fff;border:1px solid #EDEFF2;padding:11px;border-radius:10px;text-align:center}.res b{display:block;font-size:15px}.res span{font-size:11px;color:#94A3B8}
-.chance-box{background:#0F172A;color:#fff;border-radius:12px;padding:14px;margin-top:12px;text-align:center}
-.chance-box .big{font-family:'Playfair Display',serif;font-size:26px}
-.chance-box p{font-size:12.5px;color:#CBD5E1;margin-top:4px}
-.example{background:#FEF9E7;border:1px solid #FDE68A;border-radius:12px;padding:12px;margin-top:12px;font-size:13px;line-height:1.6;color:#78350F}
-@keyframes flashY{0%,100%{background:#FEF9E7}50%{background:#FDE68A}}
-.journal{background:#F8FAFC;border:1px solid #EDEFF2;border-radius:18px;overflow:hidden;margin-top:16px}
-.j-top{background:#0F172A;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
-.j-top h3{font-family:'Playfair Display',serif;font-size:17px}.j-top p{font-size:11px;color:#94A3B8}
-.live{font-size:11px;font-weight:800;background:#22C55E;padding:5px 9px;border-radius:99px}
-.strat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:14px;background:#fff}
-@media(max-width:600px){.strat-row{grid-template-columns:1fr}}
-.strat{border:2px solid #EDEFF2;border-radius:12px;padding:12px;cursor:pointer}
-.strat.active{border-color:#0F172A;background:#FEF9E7}
-.strat .tag{font-size:10px;font-weight:800;padding:3px 7px;border-radius:99px;color:#fff}
-.tag-a{background:#22C55E}.tag-b{background:#0F172A}.tag-c{background:#C9A86A}
-.strat h4{font-size:13.5px;margin:7px 0 2px}.strat p{font-size:12.5px;color:#64748B;line-height:1.5}.strat .check{font-size:12px;font-weight:700;color:#15803D;margin-top:6px}
-.flash{margin:0 14px;padding:11px 12px;border-radius:10px;font-size:13px;font-weight:700;animation:flashY 1.2s infinite}
-.trades{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;padding:14px}
-@media(max-width:600px){.trades{grid-template-columns:1fr 1fr}}
-.trade{background:#fff;border:1px solid #EDEFF2;border-radius:10px;padding:11px;text-align:center}
-.trade small{font-size:10px;color:#94A3B8;font-weight:700}.trade b{display:block;font-size:14px;margin:3px 0}.trade .win{color:#15803D;font-weight:800}.trade .loss{color:#DC2626;font-weight:800}.trade .open{color:#B45309;font-weight:800}
-.news{background:#fff;border-top:1px solid #EDEFF2;padding:14px}
-.news h4{font-size:11px;letter-spacing:1px;color:#C9A86A}
-.news-item{display:flex;gap:8px;padding:9px 0;border-bottom:1px dashed #EDEFF2;font-size:13px;line-height:1.5}
-.news-item:last-child{border-bottom:none}
-.news-time{font-size:11px;font-weight:800;color:#fff;background:#DC2626;padding:2px 7px;border-radius:99px;white-space:nowrap;height:fit-content}
-.advice{background:#0F172A;color:#fff;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:600px){.advice{grid-template-columns:1fr}}
-.advice h4{font-size:11px;color:#C9A86A;letter-spacing:1px}.advice p{font-size:13px;line-height:1.6;color:#E2E8F0}
-.rules{background:#fff;border-top:1px solid #EDEFF2;padding:14px}
-.rules h4{font-size:11px;letter-spacing:1px;color:#C9A86A}
-.rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-@media(max-width:600px){.rules-grid{grid-template-columns:1fr}}
-.rule{border:1px solid #EDEFF2;border-radius:10px;padding:10px;font-size:12.5px;line-height:1.5}
-.msg-write{display:flex;gap:8px;padding:14px;background:#fff;border-top:1px solid #EDEFF2}.msg-write input{flex:1;margin:0}.msg-write button{background:#0F172A;color:#fff;border:none;padding:11px 14px;border-radius:10px;font-weight:700;cursor:pointer;white-space:nowrap}
-.my-msg{background:#FEF9E7;border:1px solid #FDE68A;border-radius:10px;padding:10px 12px;font-size:13px;font-weight:700;margin:0 14px 10px;animation:flashY 1.5s infinite}
-.pricing-wrap{background:#F8FAFC;border:1px solid #EDEFF2;border-radius:18px;padding:18px;margin-top:16px}
-.pricing-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.pricing-toggle{display:flex;background:#fff;border:1px solid #EDEFF2;border-radius:99px;padding:3px}
-.pricing-toggle button{border:none;background:transparent;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:700;cursor:pointer;color:#64748B}
-.pricing-toggle button.active{background:#0F172A;color:#fff}
-.sleek-grid{display:grid;gap:12px;margin-top:16px}
-@media(min-width:700px){.sleek-grid{grid-template-columns:1fr 1fr 1fr}}
-.sleek{background:#fff;border:1px solid #EDEFF2;border-radius:16px;padding:18px;display:flex;flex-direction:column}
-.sleek h3{font-size:16px;margin:6px 0 2px}
-.sleek .plan{font-size:11px;font-weight:800;letter-spacing:1px;color:#64748B}
-.price-line{font-family:'Playfair Display',serif;font-size:30px;line-height:1.1;margin:8px 0 2px;white-space:nowrap}
-.price-line s{font-size:14px;color:#94A3B8;font-family:Inter,sans-serif}
-.once{font-size:11px;color:#94A3B8;font-weight:600}
-.sleek ul{list-style:none;margin:12px 0}.sleek ul li{font-size:13px;color:#334155;padding:6px 0 6px 20px;position:relative;border-top:1px dashed #EDEFF2}.sleek ul li:before{content:"✓";position:absolute;left:0;color:#C9A86A;font-weight:800}.sleek ul li.muted{color:#94A3B8}.sleek ul li.muted:before{content:"—";color:#CBD5E1}
-.sleek .btn{width:100%;margin-top:auto}
-.sleek.hot{background:#0F172A;color:#fff;box-shadow:0 16px 32px rgba(15,23,42,.18)}
-.sleek.hot .plan{color:#C9A86A}.sleek.hot ul li{color:#E2E8F0;border-color:rgba(255,255,255,.12)}
-.hot-badge{display:inline-block;background:#C9A86A;color:#fff;font-size:10px;font-weight:800;padding:5px 9px;border-radius:99px;margin-bottom:8px}
-.save-pill{display:block;background:#FEF3C7;color:#92400E;font-size:11px;font-weight:700;padding:6px 8px;border-radius:8px;margin-top:8px;text-align:center}
-.sleek.hot .save-pill{background:rgba(201,168,106,.18);color:#FDE68A}
-.pay-note{font-size:11px;color:#94A3B8;text-align:center;margin-top:8px}
-.pay-tabs{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
-.pay-tabs button{flex:1;min-width:90px;border:1px solid #E2E8F0;background:#fff;padding:9px 6px;border-radius:10px;font-size:11.5px;font-weight:700;cursor:pointer}
-.pay-tabs button.active{background:#0F172A;color:#fff}
-.eft-box{background:#fff;border:1px solid #EDEFF2;border-radius:12px;padding:14px;margin-top:12px;font-size:13px;line-height:1.7;text-align:left}
-.copy-btn{background:#F1F5F9;border:1px solid #E2E8F0;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer}
-footer{background:#0F172A;color:#94A3B8;text-align:center;padding:28px 16px;font-size:12px;line-height:1.7}
-footer b{color:#fff}
-.sticky{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:11px 14px;display:flex;gap:10px;align-items:center;justify-content:center;border-top:1px solid #EDEFF2;z-index:40}
-.sapopup,.pay-modal{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
-.sapopup.show,.pay-modal.show{display:flex}
-.sabox,.pay-box{background:#fff;border-radius:16px;padding:22px;max-width:400px;width:100%;text-align:center;max-height:92vh;overflow-y:auto}
-.sabox h3,.pay-box h3{font-family:'Playfair Display',serif;font-size:20px;margin:8px 0}.sabox p,.pay-box p{font-size:13.5px;color:#64748B}
+body{background:#fff;color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;padding-bottom:76px}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}
+.topbar{background:var(--navy);color:#cbd5e1;text-align:center;padding:7px 12px;font-size:11px}.topbar b{color:var(--gold)}
+.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:12px max(18px,calc((100vw - 1040px)/2));gap:12px}
+.logo{font:800 24px 'Playfair Display',serif;line-height:1}.logo i{color:var(--gold);font-style:normal}.logo small{display:block;font:700 8px Inter,sans-serif;letter-spacing:2px;color:#94a3b8;margin-top:4px}
+.nav-right{display:flex;align-items:center;gap:10px}.currency{display:flex;background:#f1f5f9;border-radius:99px;padding:3px}.currency button{border:0;background:transparent;padding:6px 10px;border-radius:99px;font-size:12px;font-weight:700;color:var(--muted)}.currency button.active{background:var(--navy);color:white}
+.wrap{max-width:1040px;margin:auto;padding:0 18px}.hero{text-align:center;padding:52px 0 36px}.eyebrow{display:inline-flex;align-items:center;gap:6px;background:var(--cream);border:1px solid #fde68a;color:#92400e;padding:6px 11px;border-radius:99px;font-size:11px;font-weight:800}
+h1,h2,.serif{font-family:'Playfair Display',serif}.hero h1{font-size:clamp(38px,7vw,58px);line-height:1.05;margin:16px 0;font-weight:800;letter-spacing:-.8px}.hero h1 em{font-style:normal;color:var(--gold)}.hero p{max-width:580px;margin:0 auto;color:var(--muted);font-size:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid transparent;border-radius:12px;padding:12px 18px;font-weight:800;font-size:13px;transition:transform .15s,background .15s}.btn:hover{transform:translateY(-1px)}.btn-dark{background:var(--navy);color:#fff}.btn-gold{background:var(--gold);color:white}.btn-outline{background:white;border-color:var(--line);color:var(--navy)}.btn-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:20px}.trust{font-size:12px;color:#94a3b8;font-weight:600;margin-top:14px}.location-note{font-size:11px;color:#94a3b8;margin-top:8px}
+.divider{height:1px;background:var(--line)}.section{padding:38px 0}.kick{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--gold-dark)}.section h2{font-size:clamp(25px,4vw,32px);line-height:1.15;margin:8px 0 10px}.desc{font-size:14px;color:var(--muted);max-width:680px}.grid{display:grid;gap:12px;margin-top:18px;grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.card .n{font-size:10px;font-weight:800;letter-spacing:1px;color:var(--gold-dark)}.card h3{font-size:15px;margin:6px 0}.card p{font-size:13px;color:var(--muted)}
+.chat{margin:18px 0}.msg{max-width:86%;padding:12px 14px;border-radius:14px;font-size:13.5px;margin:8px 0;line-height:1.6}.msg.four{background:var(--soft);border:1px solid var(--line);border-bottom-left-radius:4px}.msg.you{background:var(--navy);color:white;margin-left:auto;border-bottom-right-radius:4px}.msg .time{display:block;font-size:10px;color:#94a3b8;margin-top:4px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.fact{border-radius:14px;padding:16px 8px;text-align:center;background:var(--navy);color:white}.fact:nth-child(2){background:var(--cream);border:1px solid #fde68a;color:var(--navy)}.fact:nth-child(3){background:var(--soft);border:1px solid var(--line);color:var(--navy)}.fact b{display:block;font-size:20px}.fact span{font-size:11px;color:#94a3b8}.fact:nth-child(2) span{color:#92400e}
+.journal{background:var(--soft);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:16px}.jtop{background:var(--navy);color:white;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}.jtop h3{font:700 17px 'Playfair Display',serif}.jtop p{font-size:11px;color:#94a3b8}.demo-pill{font-size:10px;font-weight:800;background:#64748b;color:white;padding:5px 9px;border-radius:99px;white-space:nowrap}.stratrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px;background:#fff}.strat{border:2px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;transition:.15s}.strat.active{border-color:var(--navy);background:var(--cream)}.strat .tag{font-size:10px;font-weight:800;padding:3px 7px;border-radius:99px;color:white;background:var(--navy)}.tag-a{background:#15803d!important}.tag-c{background:var(--gold)!important}.strat h4{font-size:13px;margin:7px 0 2px}.strat p{font-size:12px;color:var(--muted)}.strat .check{font-size:11px;font-weight:800;color:#15803d;margin-top:6px}.journal-pad{padding:12px 14px}.flash-demo{background:var(--cream);border:1px solid #fde68a;border-radius:10px;padding:10px 12px;font-size:12px;font-weight:700;color:#78350f}.tradegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:14px}.trade{background:white;border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center}.trade small{font-size:10px;color:#94a3b8;font-weight:700}.trade b{display:block;font-size:13px;margin:3px 0}.demo{font-size:10px;color:#94a3b8;font-weight:700}.win{color:var(--green);font-weight:800}.loss{color:var(--red);font-weight:800}.open{color:#b45309;font-weight:800}.news{background:#fff;border-top:1px solid var(--line);padding:14px}.news h4,.rules h4{font-size:10px;letter-spacing:1px;color:var(--gold-dark)}.news-item{display:flex;gap:8px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:12px}.news-item:last-child{border-bottom:0}.news-time{font-size:10px;font-weight:800;color:white;background:#64748b;padding:2px 7px;border-radius:99px;height:fit-content;white-space:nowrap}.advice{background:var(--navy);color:white;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.advice h4{font-size:10px;color:var(--gold);letter-spacing:1px}.advice p{font-size:12px;color:#e2e8f0}.rules{background:white;border-top:1px solid var(--line);padding:14px}.rulesgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.rule{border:1px solid var(--line);border-radius:10px;padding:10px;font-size:12px}.reminder{background:var(--cream);border:1px solid #fde68a;border-radius:10px;padding:10px 12px;font-size:12px;font-weight:700;margin:0 14px 10px;color:#78350f}.writebar{display:flex;gap:8px;padding:14px;background:#fff;border-top:1px solid var(--line)}.writebar input{flex:1;min-width:0}.writebar button{background:var(--navy);color:white;border:0;padding:10px 13px;border-radius:10px;font-weight:800}
+.calc{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}.example{background:var(--cream);border:1px solid #fde68a;border-radius:12px;padding:12px;margin-top:12px;font-size:12px;color:#78350f}.fieldgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field label{display:block;font-size:10px;color:#64748b;font-weight:800;letter-spacing:.5px}.field input,.field select,input[type=text],input[type=number],select{width:100%;padding:11px 12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;font-size:13px;font-weight:600;margin:5px 0;outline:none;color:var(--ink)}.field input:focus,.field select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,106,.13)}.results{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.result{background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px;text-align:center}.result b{display:block;font-size:15px}.result span{font-size:10px;color:#94a3b8}.capacity{background:var(--navy);color:white;border-radius:12px;padding:14px;margin-top:12px;text-align:center}.capacity .big{font:700 26px 'Playfair Display',serif}.capacity p{font-size:12px;color:#cbd5e1}.barbg{height:8px;background:#334155;border-radius:99px;overflow:hidden;margin:10px 0}.barfill{height:100%;width:0;background:var(--gold);transition:width .2s}.verdict{font-size:13px;font-weight:800;margin-top:8px}.calculator-note{font-size:11px;color:var(--muted);margin-top:8px}
+.pricingwrap{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:16px}.pricingtop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.pricingtoggle{display:flex;background:white;border:1px solid var(--line);border-radius:99px;padding:3px}.pricingtoggle button{border:0;background:transparent;padding:7px 12px;border-radius:99px;font-size:11px;font-weight:800;color:var(--muted)}.pricingtoggle button.active{background:var(--navy);color:white}.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.plan{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column}.plan.hot{background:var(--navy);color:white;box-shadow:var(--shadow)}.plan h3{font-size:16px;margin:6px 0}.plan-name{font-size:10px;font-weight:800;letter-spacing:1px;color:var(--muted)}.hot .plan-name{color:var(--gold)}.price{font:700 30px 'Playfair Display',serif;margin:8px 0 2px}.price s{font:600 13px Inter,sans-serif;color:#94a3b8}.once{font-size:10px;color:#94a3b8;font-weight:700}.hotbadge{display:inline-block;background:var(--gold);color:white;font-size:10px;font-weight:800;padding:5px 9px;border-radius:99px;margin-bottom:8px}.savepill{background:#fef3c7;color:#92400e;font-size:10px;font-weight:800;padding:6px;border-radius:8px;margin-top:8px;text-align:center}.hot .savepill{background:rgba(201,168,106,.2);color:#fde68a}.plan ul{list-style:none;margin:12px 0 16px}.plan li{font-size:12px;color:#334155;padding:6px 0 6px 18px;position:relative;border-top:1px dashed var(--line)}.plan li:before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:800}.hot li{color:#e2e8f0;border-color:rgba(255,255,255,.12)}.plan li.muted{color:#94a3b8}.plan li.muted:before{content:'—';color:#cbd5e1}.plan .btn{width:100%;margin-top:auto}.paynote{font-size:10px;color:#94a3b8;text-align:center;margin-top:8px}.faq{margin-top:16px}.faq details{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;background:white}.faq summary{font-size:13px;font-weight:800;cursor:pointer}.faq details p{font-size:12px;color:var(--muted);margin-top:8px}
+footer{background:var(--navy);color:#94a3b8;text-align:center;padding:28px 16px;font-size:11px;line-height:1.7}footer b{color:white}.sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);padding:10px 14px;display:flex;gap:10px;align-items:center;justify-content:center;border-top:1px solid var(--line);z-index:40}.stickytext{font-size:12px}.stickytext span{color:var(--muted)}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.6);z-index:100;display:none;align-items:center;justify-content:center;padding:16px}.modal.show{display:flex}.modalbox{background:white;border-radius:16px;padding:20px;max-width:440px;width:100%;max-height:92vh;overflow-y:auto}.modalbox h3{font:700 20px 'Playfair Display',serif;margin:5px 0}.modalbox p{font-size:12px;color:var(--muted)}.tabs{display:flex;gap:6px;margin-top:12px}.tabs button{flex:1;border:1px solid var(--line);background:white;padding:8px 5px;border-radius:9px;font-size:11px;font-weight:800}.tabs button.active{background:var(--navy);color:white}.payview{display:none;margin-top:12px}.payview.active{display:block}.paybox{border:1px solid var(--line);border-radius:12px;padding:12px;font-size:12px;line-height:1.75;background:var(--soft);word-break:break-word}.copy{border:1px solid var(--line);border-radius:7px;background:white;padding:4px 8px;font-size:10px;font-weight:800}.modal-actions{display:flex;gap:8px;margin-top:12px}.modal-actions .btn{flex:1}.alert{font-size:11px;color:#b45309;background:#fffbeb;border:1px solid #fde68a;border-radius:9px;padding:9px;margin-top:10px}
+@media(max-width:680px){.grid,.plans{grid-template-columns:1fr}.stratrow{grid-template-columns:1fr}.tradegrid{grid-template-columns:1fr 1fr}.fieldgrid,.results,.facts,.rulesgrid,.advice{grid-template-columns:1fr 1fr}.hero{padding:40px 0 28px}.section{padding:30px 0}.nav{padding:11px 14px}.nav-right{gap:7px}.currency button{padding:6px 8px}.btn{padding:11px 14px}.sticky{justify-content:space-between}.stickytext{font-size:11px}.results{grid-template-columns:1fr 1fr}}
+@media(max-width:390px){.logo{font-size:21px}.nav-right .btn{padding:8px 10px;font-size:11px}.currency button{font-size:10px}.fieldgrid,.facts,.advice{grid-template-columns:1fr}.sticky .btn{padding:9px 12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="topbar"><b>FOUR — EMBEDDED</b> &nbsp;|&nbsp; Works Worldwide • Card • Bank Transfer • PayPal • Wise • SWIFT</div>
-<div class="nav"><div class="logo">FOUR<i>.</i><small>EMBEDDED</small></div><div style="display:flex;gap:10px;align-items:center"><div class="currency"><button id="btnUSD" onclick="setCurrency('USD')">USD $</button><button id="btnZAR" class="active" onclick="setCurrency('ZAR')">ZAR R</button></div><a href="https://wa.me/27725778727" target="_blank" class="btn btn-dark" style="padding:9px 14px">Contact</a></div></div>
+<div class="topbar"><b>FOUR — EMBEDDED</b> &nbsp;|&nbsp; Trading discipline & risk tools • <span>Preview site</span></div>
+<header class="nav">
+  <a href="#top" class="logo">FOUR<i>.</i><small>EMBEDDED</small></a>
+  <div class="nav-right">
+    <div class="currency" aria-label="Currency display"><button id="navUSD" onclick="setCurrency('USD')">USD $</button><button id="navZAR" class="active" onclick="setCurrency('ZAR')">ZAR R</button></div>
+    <a href="https://wa.me/27725778727" target="_blank" rel="noopener" class="btn btn-dark" style="padding:9px 13px">Contact</a>
+  </div>
+</header>
+<main id="top" class="wrap">
+<section class="hero">
+  <span class="eyebrow">● FOUR DISCIPLINE TOOLS</span>
+  <h1>Trade better.<br><em>Stop blowing.</em></h1>
+  <p>Set your trading rules before the session. FOUR is designed to help enforce your limits, reduce emotional decisions and make discipline easier to follow.</p>
+  <div class="btn-row"><a href="#how" class="btn btn-outline">See how it works ↓</a><button class="btn btn-gold" onclick="payFor('bundle')">Complete Bundle — <span class="priceval" data-usd="270" data-zar="4999">R4,999</span></button></div>
+  <div class="trust">✓ Once-off pricing • No subscription shown • MT5-focused product</div>
+  <div class="location-note" id="currencyNote">Prices displayed in Rand (ZAR)</div>
+</section>
+<div class="divider"></div>
+<section class="section" id="how">
+  <div class="kick">THE PROBLEM</div><h2>Strategy isn't always the problem.<br>Discipline is.</h2>
+  <p class="desc">Revenge trading, overtrading, increasing risk and ignoring limits can undo a good plan. FOUR is built around the rules you set before you trade.</p>
+  <div class="grid">
+    <article class="card"><div class="n">01 — HARD LOCK</div><h3>Stop at your limit</h3><p>Configure a daily loss or profit threshold. When the configured trigger is reached, the EA can block new entries according to its supported settings.</p></article>
+    <article class="card"><div class="n">02 — COOLDOWN</div><h3>Give yourself time</h3><p>Pause trading after a trade so you can avoid impulsive re-entry. Cooldown behavior depends on the EA configuration.</p></article>
+    <article class="card"><div class="n">03 — RISK LOCK</div><h3>Keep risk consistent</h3><p>Use pre-defined risk rules instead of increasing position size emotionally after a loss.</p></article>
+    <article class="card"><div class="n">04 — ONE AT A TIME</div><h3>Control exposure</h3><p>Use configured restrictions to prevent unwanted simultaneous positions or trade stacking.</p></article>
+  </div>
+</section>
+<div class="divider"></div>
+<section class="section">
+  <div class="kick">WHY FOUR</div><h2>Keep your rules in front of you.</h2>
+  <p class="desc">FOUR is a discipline and risk-management tool—not a promise of profits or a trading strategy by itself.</p>
+  <div class="facts"><div class="fact"><b>Rules</b><span>Set before you trade</span></div><div class="fact"><b>Limits</b><span>Know when to stop</span></div><div class="fact"><b>Routine</b><span>Reduce impulsive choices</span></div></div>
+</section>
+<div class="divider"></div>
+<section class="section" id="journal">
+  <div class="kick">01 — JOURNAL & SIGNALS</div><h2>Your trading control room.</h2><p class="desc">This section is a product preview. Sample trades, calendar items and coaching text below are illustrative—not live market data.</p>
+  <div class="journal">
+    <div class="jtop"><div><h3>FOUR JOURNAL — PREVIEW</h3><p>Sample account • Sample session</p></div><span class="demo-pill">DEMO DATA</span></div>
+    <div class="journal-pad"><h4 style="font-size:10px;letter-spacing:1px;color:var(--gold-dark)">STRATEGIES — SAMPLE RULE SETS</h4></div>
+    <div class="stratrow">
+      <div class="strat active" onclick="selectStrat(this,'S1 BO')"><span class="tag tag-a">S1 • BO</span><h4>Breakout</h4><p>Close beyond a level. Retest and hold. Avoid chasing.</p><div class="check">✓ PREVIEW SELECTED</div></div>
+      <div class="strat" onclick="selectStrat(this,'S2 FB')"><span class="tag">S2 • FB</span><h4>Fake Break</h4><p>Break and close back inside the range. Confirm retest.</p><div class="check" style="color:#94a3b8">Tap to select preview</div></div>
+      <div class="strat" onclick="selectStrat(this,'S3 CD')"><span class="tag tag-c">S3 • CD</span><h4>Continuation</h4><p>Trend and pullback with a confirmation candle.</p><div class="check" style="color:#94a3b8">Tap to select preview</div></div>
+    </div>
+    <div class="journal-pad" style="font-size:12px;color:#475569"><b>Preview reminder:</b> <span id="stratReminder">S1 BO selected in this demo. This does not control a live account.</span></div>
+    <div class="journal-pad"><div class="flash-demo" id="flashBar">Reminder preview: Follow your plan. Don't revenge trade.</div></div>
+    <div class="journal-pad"><h4 style="font-size:10px;letter-spacing:1px;color:var(--gold-dark)">SAMPLE TRADE LOG</h4><span class="demo">Illustrative results only</span></div>
+    <div class="tradegrid">
+      <div class="trade"><small>EXAMPLE 1</small><b>GOLD BUY</b><span class="win">+ R850</span></div>
+      <div class="trade"><small>EXAMPLE 2</small><b>EURUSD</b><span class="loss">− R500</span></div>
+      <div class="trade"><small>EXAMPLE 3</small><b>GOLD BUY</b><span class="open">+ R320</span></div>
+      <div class="trade"><small>EXAMPLE TOTAL</small><b>+ R670</b><span class="demo">Sample only</span></div>
+    </div>
+    <div class="news"><h4>CALENDAR FILTER — DEMO</h4><div class="news-item"><span class="news-time">DEMO</span><div><b>High-impact USD event</b><br><span style="color:var(--muted)">Example blackout window. No live calendar is connected.</span></div></div><div class="news-item"><span class="news-time">DEMO</span><div><b>EUR event</b><br><span style="color:var(--muted)">Illustrative reminder to review event risk.</span></div></div></div>
+    <div class="advice"><div><h4>TRADE NOTE — SAMPLE</h4><p>Example: Consider reducing exposure if your plan calls for it. This is not live trade advice.</p></div><div><h4>FOUR COACH — SAMPLE</h4><p>Example reminder: Respect your daily limit. Don't chase the next trade.</p></div></div>
+    <div class="rules"><h4>RULES — SAMPLE</h4><div class="rulesgrid"><div class="rule"><b>1. Trade your chosen setup.</b><br>No random entries.</div><div class="rule"><b>2. Predefine risk.</b><br>Know your risk before entry.</div><div class="rule"><b>3. After a loss.</b><br>Take the configured cooldown.</div><div class="rule"><b>4. Respect the stop.</b><br>Daily limit is not a target.</div></div></div>
+    <div class="journal-pad"><h4 style="font-size:10px;letter-spacing:1px;color:var(--gold-dark)">PERSONAL REMINDER — LOCAL PREVIEW</h4></div>
+    <div class="reminder" id="myMsg">Pinned reminder: Don't revenge trade. Wait for your setup.</div>
+    <div class="writebar"><input type="text" id="myMsgInput" maxlength="160" placeholder="Write a reminder (preview only)" aria-label="Personal reminder"><button onclick="saveMsg()">Pin</button></div>
+  </div>
+</section>
+<div class="divider"></div>
+<section class="section">
+  <div class="kick">02 — SIGNAL FORMAT</div><h2>Setup. Plan. Execute.</h2><p class="desc">These cards demonstrate how a signal may be formatted. No real-time signal service is connected.</p>
+  <div class="grid"><article class="card"><div class="n">S1 — BO • SAMPLE</div><h3>Breakout format</h3><p>Instrument • Entry zone • Stop loss • Take profit • Planned risk • Confirmation</p></article><article class="card"><div class="n">S2 — FB • SAMPLE</div><h3>Fake breakout format</h3><p>Level breach • Close back inside • Retest • Confirmation • Risk</p></article><article class="card"><div class="n">S3 — CD • SAMPLE</div><h3>Continuation format</h3><p>Trend context • Pullback • Confirmation candle • Invalidation level</p></article><article class="card"><div class="n">EXECUTION • SAMPLE</div><h3>Pre-trade checklist</h3><p>Setup confirmed • Risk planned • News reviewed • Limit not reached</p></article></div>
+</section>
+<div class="divider"></div>
+<section class="section" id="calculator">
+  <div class="kick">03 — RISK CALCULATOR</div><h2>Know your limit before you trade.</h2><p class="desc">This independent calculator helps estimate full-risk allocations. It does not read your MT5 account or enforce trades.</p>
+  <div class="example"><b>Example:</b> R100,000 balance • 3% account limit = R3,000 • FOUR personal limit = R2,000 • R500 risk per trade = 4 full-risk allocations.</div>
+  <div class="calc"><div class="fieldgrid">
+    <div class="field"><label for="balance">Account balance</label><input id="balance" type="number" min="0" step="any" value="100000"></div>
+    <div class="field"><label for="currencySelect">Currency</label><select id="currencySelect"><option value="ZAR">ZAR (R)</option><option value="USD">USD ($)</option><option value="EUR">EUR (€)</option><option value="GBP">GBP (£)</option></select></div>
+    <div class="field"><label for="dailyPct">Account daily limit (%)</label><select id="dailyPct"><option value="3">3% — example</option><option value="2">2% — conservative example</option><option value="5">5% — example</option><option value="1">1% — custom</option></select></div>
+    <div class="field"><label for="riskTrade">Risk per trade</label><input id="riskTrade" type="number" min="0" step="any" value="500"></div>
+    <div class="field"><label for="fourLimit">FOUR personal limit</label><input id="fourLimit" type="number" min="0" step="any" value="2000" placeholder="0 = use account daily limit"></div>
+    <div class="field"><label for="lossToday">Loss used today</label><input id="lossToday" type="number" min="0" step="any" value="0"></div>
+  </div>
+  <div class="results"><div class="result"><b id="propLimit">R3,000</b><span>Account limit</span></div><div class="result"><b id="fourLimitResult">R2,000</b><span>FOUR limit</span></div><div class="result"><b id="riskResult">R500</b><span>Per trade</span></div><div class="result"><b id="chances">4</b><span>Full-risk allocations</span></div></div>
+  <div class="capacity"><div class="big" id="remainingText">R2,000 remaining</div><p id="capacitySub">4 full-risk allocations at the selected risk amount</p><div class="barbg"><div class="barfill" id="capacityBar"></div></div><p id="calcVerdict" class="verdict">No losses entered. Your selected FOUR limit is available in this calculation.</p></div>
+  <p class="calculator-note">Calculations use your inputs and round the number of full-risk allocations down. Actual losses may exceed planned risk due to slippage, gaps, commissions or execution. The FOUR EA may use different rules.</p></div>
+</section>
+<div class="divider"></div>
+<section class="section" id="pricing">
+  <div class="kick">04 — PRICING</div><h2>Pick your protection.</h2><p class="desc">One-time prices shown for this preview. Confirm payment links, product delivery and license terms before launch.</p>
+  <div class="pricingwrap">
+    <div class="pricingtop"><div><h3 class="serif" style="font-size:18px">Straightforward pricing.</h3><p style="font-size:12px;color:var(--muted)">Once-off purchase • no subscription displayed</p></div><div class="pricingtoggle"><button id="priceUSD" onclick="setCurrency('USD')">USD $</button><button id="priceZAR" class="active" onclick="setCurrency('ZAR')">ZAR R</button></div></div>
+    <div class="plans">
+      <article class="plan"><div class="plan-name">DASHBOARD — EA PROTECTION</div><h3>Stop Blowing</h3><div class="price priceval" data-usd="81" data-zar="1500">R1,500</div><div class="once">ONCE-OFF • TERMS APPLY</div><ul><li>Hard Lock (configured limits)</li><li>Cooldown</li><li>Risk Lock features</li><li>One trade at a time controls</li><li>Daily limit tools</li><li class="muted">Journal + Signals not included</li></ul><button class="btn btn-dark" onclick="payFor('dashboard')">Select Dashboard</button><div class="paynote">Payment options at checkout</div></article>
+      <article class="plan hot"><span class="hotbadge">BEST VALUE BUNDLE</span><div class="plan-name">COMPLETE FOUR</div><h3>Complete Bundle</h3><div class="price"><span class="priceval" data-usd="270" data-zar="4999">R4,999</span> <s><span class="priceval" data-usd="276" data-zar="5099">R5,099</span></s></div><div class="once">ONCE-OFF • TERMS APPLY</div><div class="savepill">Save <span class="priceval" data-usd="6" data-zar="100">R100</span> vs buying separately</div><ul><li>Dashboard protection tools</li><li>Journal and strategy selector</li><li>Signal format tools</li><li>Sample news and reminder interface</li><li>Calculator</li><li>Updates and support subject to terms</li></ul><button class="btn btn-gold" onclick="payFor('bundle')">Select Complete Bundle</button><div class="paynote">Payment options at checkout</div></article>
+      <article class="plan"><div class="plan-name">JOURNAL + SIGNALS</div><h3>Trade With Structure</h3><div class="price priceval" data-usd="195" data-zar="3599">R3,599</div><div class="once">ONCE-OFF • TERMS APPLY</div><ul><li>Journal and strategy selector</li><li>Signal-format tools</li><li>News-filter preview</li><li>Advice/reminder features</li><li>Calculator</li><li class="muted">Hard Lock protection not included</li></ul><button class="btn btn-dark" onclick="payFor('growth')">Select Journal + Signals</button><div class="paynote">Payment options at checkout</div></article>
+    </div>
+    <div class="example" style="margin-top:14px"><b>Bundle savings:</b> R100 / $6 based on current displayed individual prices. Savings are calculated from listed prices, not a higher reference price.</div>
+  </div>
+</section>
+<div class="divider"></div>
+<section class="section" id="faq">
+  <div class="kick">05 — QUESTIONS</div><h2>Before you get FOUR.</h2>
+  <div class="faq">
+    <details><summary>Does FOUR guarantee profits?</summary><p>No. FOUR is a trading discipline and risk-management tool. It cannot guarantee trading outcomes, prevent all losses or replace a strategy.</p></details>
+    <details><summary>Does this website show live trades or news?</summary><p>No. Journal entries, signals, news and advice shown here are demo examples. Live services require integrations that are not included in this static website.</p></details>
+    <details><summary>What platform is FOUR designed for?</summary><p>FOUR is presented as an MT5-focused product. Confirm supported terminals, brokers, account types and installation requirements before purchasing.</p></details>
+    <details><summary>When do I receive the EA?</summary><p>Delivery and activation must be confirmed by the seller. Automated delivery is not implemented in this preview.</p></details>
+    <details><summary>What happens if MT5 closes or disconnects?</summary><p>Protection depends on the EA's actual implementation, terminal state, broker execution and configured rules. Read the compatibility and limitations information before relying on any lock.</p></details>
+  </div>
+</section>
+<div class="chat"><div class="msg four"><b>Respect your rules.</b><br>Let discipline be part of the plan.<span class="time">FOUR • Reminder</span></div><div class="msg you">Trade with a plan. Stop when my rules say stop.<span class="time">You • Commitment</span></div></div>
+</main>
+<footer><b class="serif" style="font-size:17px">FOUR — EMBEDDED</b><br>WhatsApp: +27 72 577 8727 | fourembedded@gmail.com<br>Discipline tools • Risk management • MT5-focused<br><p style="max-width:700px;margin:10px auto">Trading involves substantial risk. FOUR does not guarantee profits or prevent all losses. Demo data on this website is illustrative and not live financial advice or signals.</p><p>Policies and support details should be published before accepting orders.</p></footer>
+<div class="sticky"><div class="stickytext"><b>FOUR — EMBEDDED</b> <span>• Bundle <span class="priceval" data-usd="270" data-zar="4999">R4,999</span></span></div><button class="btn btn-dark" onclick="payFor('bundle')">Get Bundle</button></div>
 
-<div class="sapopup" id="saPopup"><div class="sabox"><div style="font-size:26px">🇿🇦</div><h3>South Africa Detected</h3><p>Show prices in <b>Rand (R)</b>?</p><div style="display:flex;gap:8px;margin-top:14px"><button class="btn btn-dark" onclick="confirmSA(true)" style="flex:1">Yes, Rands</button><button class="btn btn-outline" onclick="confirmSA(false)" style="flex:1">Keep $</button></div></div></div>
-
-<div class="pay-modal" id="payModal"><div class="pay-box">
-<h3 id="payTitle">Pay For Bundle — R4,999</h3>
-<p>Where are you paying from?</p>
-<select id="countrySelect" onchange="updateCountryPay()" style="margin-top:10px">
-<option value="ZA" selected>🇿🇦 South Africa — EFT / SnapScan / Card</option>
-<option value="US">🇺🇸 USA — ACH / Wire / Card</option>
-<option value="UK">🇬🇧 UK — Faster Payments / Card</option>
-<option value="EU">🇪🇺 Europe — SEPA / Card</option>
-<option value="NG">🇳🇬 Nigeria — Bank Transfer / Card</option>
-<option value="KE">🇰🇪 Kenya — M-Pesa / Bank Transfer</option>
-<option value="GH">🇬🇭 Ghana — Bank Transfer / Card</option>
-<option value="OTHER">🌍 Other Country — Card / PayPal / Wise / SWIFT</option>
-</select>
-<div id="countryHint" style="font-size:12px;color:#64748B;margin-top:8px;background:#F8FAFC;padding:8px 10px;border-radius:8px">In SA, EFT = bank transfer. Same thing, different name.</div>
-
-<div class="pay-tabs">
-<button id="tabCard" class="active" onclick="showPayTab('card')">💳 Card</button>
-<button id="tabEft" onclick="showPayTab('eft')">🏦 Bank Transfer</button>
-<button id="tabIntl" onclick="showPayTab('intl')">🌍 PayPal / Wise / SWIFT</button>
-</div>
-
-<div id="payCard">
-<p style="margin:12px 0">Pay securely with card. Works in every country.</p>
-<button onclick="openPayLink()" class="btn btn-dark" style="width:100%">Pay With Card →</button>
-<p style="font-size:11px;color:#94A3B8;margin-top:8px">Visa / Mastercard / Debit • Secure checkout</p>
-</div>
-
-<div id="payEft" style="display:none">
-<div class="eft-box">
-<b id="eftLabel">Bank Transfer — South Africa (EFT):</b><br>
-<b>Bank:</b> <span id="bankName">Capitec Bank</span><br>
-<b>Account Name:</b> <span id="accName">FOUR EMBEDDED (SIZWE M)</span><br>
-<b>Account Number:</b> <span id="accNum">2557076496</span> <button class="copy-btn" onclick="copyAcc()">Copy</button><br>
-<b>Branch Code:</b> <span id="branchCode">470010</span><br>
-<b>SWIFT / BIC:</b> <span id="swiftCode">CABLZAJJ</span> <button class="copy-btn" onclick="copySwift()">Copy</button><br>
-<b>Bank Address:</b> Capitec Bank, 5 Neutron Road, Techno Park, Stellenbosch, 7600, South Africa<br>
-<b>Reference:</b> <span id="payRef">FOUR-BUNDLE</span> <button class="copy-btn" onclick="copyRef()">Copy</button><br>
-<b>Amount:</b> <span id="payAmt">R4,999</span><br>
-<span style="font-size:12px;color:#64748B">SA has no IBAN. For international wire, use SWIFT + Account Number above.</span>
-</div>
-<p style="margin-top:10px;font-size:12.5px">1. Transfer the amount.<br>2. Send proof on WhatsApp.<br>3. Get FOUR instantly.</p>
-<a id="waProofBtn" href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20paid%20for%20BUNDLE" target="_blank" class="btn btn-gold" style="width:100%">Send Proof on WhatsApp →</a>
-</div>
-
-<div id="payIntl" style="display:none">
-<div class="eft-box">
-<b>International — Easiest:</b><br>
-<b>1. PayPal:</b> <span id="paypalEmail">fourembedded@gmail.com</span> <button class="copy-btn" onclick="copyPaypal()">Copy</button><br>
-<b>2. Wise:</b> Send to same email / bank details above. Wise converts to Rand automatically.<br>
-<b>3. SWIFT Wire:</b><br>
-Bank: Capitec Bank<br>
-Account Name: FOUR EMBEDDED (SIZWE M)<br>
-Account Number: 2557076496<br>
-Branch Code: 470010<br>
-SWIFT / BIC: <b>CABLZAJJ</b> <button class="copy-btn" onclick="copySwift()">Copy</button><br>
-Bank Address: 5 Neutron Road, Techno Park, Stellenbosch, 7600, South Africa<br>
-<span style="color:#64748B;font-size:12px">Card is fastest for international. SWIFT takes 1-3 working days. PayPal / Wise takes 2-5 min.</span>
-</div>
-<a href="https://wa.me/27725778727?text=Hi%20FOUR%2C%20I%20want%20to%20pay%20from%20another%20country" target="_blank" class="btn btn-dark" style="width:100%;margin-top:10px">Ask FOUR For Help →</a>
-</div>
-
-<button onclick="closePay()" class="btn btn-outline" style="width:100%;margin-top:12px">Close</button>
+<!-- Checkout preview: connect a real checkout provider and verify its links before launch. -->
+<div class="modal" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="payTitle"><div class="modalbox">
+  <h3 id="payTitle">Checkout preview</h3><p id="payDesc">Selected product and amount.</p>
+  <p style="margin-top:8px">Choose how you intend to pay. This modal is a payment-instructions preview, not a verified checkout.</p>
+  <div class="tabs"><button id="tabCard" class="active" onclick="showTab('card')">Card / PayPal</button><button id="tabBank" onclick="showTab('bank')">Bank transfer</button><button id="tabIntl" onclick="showTab('international')">International</button></div>
+  <div class="payview active" id="viewCard"><div class="paybox"><b>Card / PayPal</b><p style="margin-top:6px">A real payment link needs to be configured for the selected product and currency. The current PayPal links are seller-provided and should be checked for matching price and currency before use.</p></div><a id="paypalLink" class="btn btn-dark" href="#" target="_blank" rel="noopener" style="width:100%;margin-top:10px">Open PayPal payment →</a><p class="alert">Preview notice: payment link is not automatically verified against the displayed price.</p></div>
+  <div class="payview" id="viewBank"><div class="paybox"><b>Bank transfer — South Africa</b><br>Bank: Capitec Bank<br>Account name: FOUR EMBEDDED (SIZWE M)<br>Account number: <span id="accountNumber">2557076496</span> <button class="copy" onclick="copyText('accountNumber')">Copy</button><br>Branch code: 470010<br>SWIFT/BIC: CABLZAJJ <button class="copy" onclick="copyPlain('CABLZAJJ')">Copy</button><br>Reference: <span id="payReference">FOUR-BUNDLE</span> <button class="copy" onclick="copyText('payReference')">Copy</button><br>Amount: <b id="bankAmount">R4,999</b></div><p class="alert">Please verify bank details and confirm funds have cleared before delivering any product. Do not rely solely on payment screenshots.</p><a class="btn btn-gold" id="proofLink" href="#" target="_blank" rel="noopener" style="width:100%;margin-top:10px">Send payment query on WhatsApp</a></div>
+  <div class="payview" id="viewInternational"><div class="paybox"><b>International payment options</b><br>PayPal: fourembedded@gmail.com <button class="copy" onclick="copyPlain('fourembedded@gmail.com')">Copy</button><br>Bank transfer may require SWIFT/BIC: CABLZAJJ<br>South African account transfers generally use account number and bank codes rather than an IBAN. Confirm with your sender's bank for wire instructions.</div><a class="btn btn-dark" href="https://wa.me/27725778727?text=Hello%20FOUR%2C%20I%20need%20international%20payment%20instructions" target="_blank" rel="noopener" style="width:100%;margin-top:10px">Ask about international payment →</a></div>
+  <div class="modal-actions"><button class="btn btn-outline" onclick="closeModal()">Close</button></div>
 </div></div>
-
-<div class="wrap">
-<div class="hero">
-<span class="eyebrow">● FOUR IS ONLINE — WORLDWIDE</span>
-<h1>Trade better.<br><em>Stop blowing.</em></h1>
-<p>FOUR locks you when you hit your limit. Cooldown after every trade. No revenge trading.</p>
-<div class="btnrow"><a href="#journal" class="btn btn-dark">See Journal ↓</a><button onclick="payFor('bundle')" class="btn btn-gold">Bundle — <span class="pval" data-usd="270" data-zar="4999">$270</span> 🔒</button></div>
-<div class="trust">✓ Once-off • No monthly fee • Works in SA • USA • UK • EU • Africa</div>
-<p style="font-size:12px;color:#94A3B8;margin-top:10px" id="locNote">Prices in Rand (R) • EFT in SA = Bank Transfer everywhere else</p>
-</div>
-
-<div class="divider"></div>
-
-<div class="section">
-<div class="kick">FOUR TALKS</div>
-<h2>Meet FOUR.</h2>
-<div class="chat">
-<div class="msg four"><b>Hi — I'm FOUR.</b><br>It's about time.<span class="t">FOUR • Now</span></div>
-<div class="msg you">Who are you?<span class="t">You • Now</span></div>
-<div class="msg four">You said "one trade today." Then you took seven. You revenge traded. You blew it. Am I wrong?<span class="t">FOUR • Now</span></div>
-<div class="msg you">That's exactly me.<span class="t">You • Now</span></div>
-<div class="msg four"><b>1. Hard Lock</b> — Hit your loss, I lock you.<br><b>2. Cooldown</b> — 30 min after every trade.<span class="t">FOUR • Now</span></div>
-</div>
-</div>
-<div class="divider"></div>
-
-<div class="section">
-<div class="kick">WHY YOU FAIL</div>
-<h2>Not strategy. Discipline.</h2>
-<div class="facts"><div><b>54.6%</b><span>Fail on daily loss</span></div><div><b>2.1×</b><span>Over-trade</span></div><div><b>~90%</b><span>Fail challenges</span></div></div>
-</div>
-<div class="divider"></div>
-
-<div class="section">
-<div class="kick">01 — DASHBOARD</div>
-<h2>Your control room.</h2>
-<p class="d">EA protection — stops you blowing. This is the lock.</p>
-<div class="grid">
-<div class="card"><div class="n">HARD LOCK</div><h3>Auto Lock</h3><p>Hit R3,000 loss or R4,000 target — EA locks you. No more trades today.</p></div>
-<div class="card"><div class="n">COOLDOWN</div><h3>30 Min Wait</h3><p>After every trade, BUY / SELL grey for 30 min. No revenge trade.</p></div>
-<div class="card"><div class="n">RISK LOCK</div><h3>No Revenge Size</h3><p>Risk R500 stays R500. EA blocks you increasing lot after loss.</p></div>
-<div class="card"><div class="n">ONE TRADE</div><h3>One At A Time</h3><p>EA allows 1 open trade only. No stacking losses.</p></div>
-<div class="card"><div class="n">CURRENCY FEEL</div><h3>Feel It In Rand</h3><p>R3,000 hits different than $162. ZAR / USD / EUR / GBP.</p></div>
-<div class="card"><div class="n">DAILY LIMIT</div><h3>Your Limit, Enforced</h3><p>You set R3,000 — EA enforces it. Not you. FOUR.</p></div>
-</div>
-</div>
-<div class="divider"></div>
-
-<div class="section" id="journal">
-<div class="kick">02 — JOURNAL + SIGNALS</div>
-<h2>Everything in front of you.</h2>
-<p class="d">EA brain + signals — what to trade, when to trade, when NOT to trade.</p>
-<div class="journal">
-<div class="j-top"><div><h3>FOUR JOURNAL — LIVE</h3><p>R100,000 • London + New York</p></div><span class="live">● LIVE</span></div>
-<div style="padding:12px 14px 0"><h4 style="font-size:11px;letter-spacing:1px;color:#C9A86A">YOUR 3 STRATEGIES — PICK YOUR A+</h4></div>
-<div class="strat-row">
-<div class="strat active" onclick="selectStrat(this,'S1 BO')"><span class="tag tag-a">A+ • S1 BO</span><h4>Breakout</h4><p>Close above high. Retest + hold. No chasing.</p><div class="check">✓ A+ SELECTED</div></div>
-<div class="strat" onclick="selectStrat(this,'S2 FB')"><span class="tag tag-b">S2 FB</span><h4>Fake Break</h4><p>Fake above high, close back inside. Sell retest.</p><div class="check" style="color:#94A3B8">Tap to make A+</div></div>
-<div class="strat" onclick="selectStrat(this,'S3 CD')"><span class="tag tag-c">S3 CD</span><h4>Continuation</h4><p>Trend + pullback. Buy on engulfing.</p><div class="check" style="color:#94A3B8">Tap to make A+</div></div>
-</div>
-<div style="padding:0 14px;font-size:12.5px;color:#475569"><b>Reminder:</b> <span id="stratReminder">S1 BO only today. No B / C trades.</span></div>
-<div class="flash" id="flashBar">⚡ R200 away from target. Take partial now.</div>
-<div style="padding:12px 14px 0"><h4 style="font-size:11px;letter-spacing:1px;color:#C9A86A">LIVE TRADES — IN A ROW</h4></div>
-<div class="trades">
-<div class="trade"><small>TRADE 1</small><b>GOLD BUY</b><span class="win">+ R850 ✓</span></div>
-<div class="trade"><small>TRADE 2</small><b>EURUSD</b><span class="loss">- R500</span></div>
-<div class="trade"><small>RUNNING</small><b>GOLD BUY</b><span class="open">+ R320</span></div>
-<div class="trade"><small>TODAY</small><b>+ R670</b><span class="win">4 chances left</span></div>
-</div>
-<div class="news">
-<h4>NEWS — NO EXTERNAL SITE</h4>
-<div class="news-item"><span class="news-time">14:30</span><div><b>USD CPI — BLOCKED</b><br><span style="color:#64748B">No USD trades 14:15 - 15:00. EA blocks USD.</span></div></div>
-<div class="news-item"><span class="news-time" style="background:#C9A86A">16:00</span><div><b>EUR ECB Speech</b><br><span style="color:#64748B">Reduce risk if trading EUR.</span></div></div>
-</div>
-<div class="advice">
-<div><h4>ADVICE — RUNNING TRADE</h4><p><b>Gold +R320.</b> Take half. Move SL to breakeven.</p></div>
-<div><h4>FOUR COACH</h4><p><b>Green Days 7/10.</b> 2 trades done. Don't chase loss #2.</p></div>
-</div>
-<div class="rules">
-<h4>RULES — LIVE</h4>
-<div class="rules-grid">
-<div class="rule"><b>1. Only A+ S1 BO.</b><br>No random entries.</div>
-<div class="rule"><b>2. Risk R500.</b><br>R3,000 ÷ R500 = 6 chances.</div>
-<div class="rule"><b>3. After loss → 30 min cooldown.</b></div>
-<div class="rule"><b>4. Stop at R3,000 loss / R4,000 profit.</b></div>
-</div>
-</div>
-<div style="padding:0 14px 6px"><h4 style="font-size:11px;letter-spacing:1px;color:#C9A86A">WRITE YOUR MESSAGE — IT FLASHES</h4></div>
-<div class="my-msg" id="myMsg">📌 "Don't revenge trade. Wait for A+ only."</div>
-<div class="msg-write"><input type="text" id="myMsgInput" placeholder="Type your reminder..."><button onclick="saveMsg()">Pin 📌</button></div>
-</div>
-</div>
-<div class="divider"></div>
-
-<div class="section">
-<div class="kick">03 — SIGNALS</div>
-<h2>Setup. Click. Trade.</h2>
-<p class="d">On WhatsApp: +27 72 577 8727 — Entry + SL + TP + Risk, every signal.</p>
-<div class="grid">
-<div class="card"><div class="n">S1 — BO</div><h3>Breakout Signal</h3><p>BUY Gold @ 2650 — SL 2640 — TP 2670. Retest + hold.</p></div>
-<div class="card"><div class="n">S2 — FB</div><h3>Fake Break Signal</h3><p>SELL Gold on fake break. Fake above high, close back inside.</p></div>
-<div class="card"><div class="n">S3 — CD</div><h3>Continuation Signal</h3><p>BUY EURUSD on pullback. Trend + engulfing.</p></div>
-<div class="card"><div class="n">EXECUTION</div><h3>Verified Entry</h3><p>EA checks: A+ only, News clear, Cooldown done, Risk R500.</p></div>
-</div>
-</div>
-<div class="divider"></div>
-
-<div class="section" id="calc">
-<div class="kick">CALCULATOR — 6 CHANCES</div>
-<h2>How many chances?</h2>
-<div class="example"><b>R100,000 → 3% = R3,000</b> → Risk <b>R500</b> → <b>R3,000 ÷ R500 = 6 chances.</b></div>
-<div class="calc">
-<label>Balance</label><input type="number" id="balInput" value="100000" oninput="calc()">
-<label>Currency</label><select id="curSelect" onchange="calc()"><option value="ZAR" selected>ZAR (R)</option><option value="USD">USD ($)</option><option value="EUR">EUR (€)</option><option value="GBP">GBP (£)</option></select>
-<label>Daily Loss %</label><select id="pctSelect" onchange="calc()"><option value="0.03" selected>3% — Prop Daily</option><option value="0.02">2% — Safe</option><option value="0.05">5% — Max</option></select>
-<label>Risk Per Trade</label><input type="number" id="riskInput" value="500" oninput="calc()">
-<label>Your FOUR Limit</label><input type="number" id="myLossInput" value="3000" oninput="calc()">
-<div class="res"><div><b id="rDaily">R3,000</b><span>Daily Limit</span></div><div><b id="rRisk">R500</b><span>Per Trade</span></div><div><b id="rChances">6</b><span>Chances</span></div></div>
-<div class="chance-box"><div class="big" id="chanceBig">You Get 6 Chances</div><p id="chanceText">R3,000 ÷ R500 = 6 trades.</p></div>
-<label style="margin-top:12px;display:block">Lost Today?</label><input type="number" id="lostInput" value="0" oninput="calc()">
-<p id="verdict" style="font-size:14px;font-weight:700;color:#15803D;margin-top:6px">Safe — 6 chances left.</p>
-<div style="font-size:12px;color:#94A3B8;margin-top:4px" id="calcCode"></div>
-</div>
-</div>
-<div class="divider"></div>
-
-<div class="section" id="pricing" style="padding-bottom:16px">
-<div class="kick">PRICING — ONCE-OFF • WORLDWIDE</div>
-<h2>Pick your protection.</h2>
-<p class="d">One blown challenge = <span class="pval" data-usd="81" data-zar="1500">$81</span> – <span class="pval" data-usd="270" data-zar="5000">$270</span>. Pay once.</p>
-<div class="pricing-wrap">
-<div class="pricing-top"><div><h3 style="font-family:'Playfair Display',serif;font-size:18px">Simple pricing.</h3><p style="font-size:12.5px;color:#64748B">SA: EFT / SnapScan • USA: ACH / Wire • UK: Faster Payments • EU: SEPA • Everyone: Card / PayPal / Wise / SWIFT</p></div><div class="pricing-toggle"><button id="toggleUSD" onclick="setCurrency('USD')">USD $</button><button id="toggleZAR" class="active" onclick="setCurrency('ZAR')">ZAR R</button></div></div>
-<div class="sleek-grid">
-<div class="sleek"><div class="plan">DASHBOARD — EA PROTECTION</div><h3>Stop Blowing</h3><div class="price-line"><span class="pval" data-usd="81" data-zar="1500">$81</span></div><div class="once">ONCE-OFF • LIFETIME</div><ul><li>Hard Lock — Auto lock at loss / target</li><li>Cooldown — 30 min after every trade</li><li>Risk Lock — Risk stays R500, no revenge size</li><li>One Trade At A Time</li><li>Daily Limit Enforced</li><li>Currency Feel — ZAR / USD / EUR / GBP</li><li class="muted">Journal + Signals NOT included</li></ul><button onclick="payFor('dashboard')" class="btn btn-dark">Pay — <span class="pval" data-usd="81" data-zar="1500">$81</span> 🔒</button><div class="pay-note">Card / Bank Transfer / PayPal →</div></div>
-<div class="sleek hot"><span class="hot-badge">★ BEST VALUE — SAVE <span class="pval" data-usd="141" data-zar="2600">$141</span></span><div class="plan">FULL BUNDLE — ALL 3</div><h3>Complete EA</h3><div class="price-line"><span class="pval" data-usd="270" data-zar="4999">$270</span> <s><span class="pval" data-usd="411" data-zar="7599">$411</span></s></div><div class="once">ONCE-OFF • LIFETIME</div><span class="save-pill">Save <span class="pval" data-usd="141" data-zar="2600">$141</span> vs separately</span><ul><li>ALL Dashboard: Hard Lock + Cooldown + Risk Lock</li><li>ALL Journal: S1 / S2 / S3 + Flashing + News + Advice</li><li>ALL Signals: Entry + SL + TP + Risk</li><li>Rules Live + Pin Message + Calculator</li><li>Priority Support + Free Updates</li></ul><button onclick="payFor('bundle')" class="btn btn-gold">Pay — <span class="pval" data-usd="270" data-zar="4999">$270</span> 🔒</button><div class="pay-note" style="color:#94A3B8">Card / Bank Transfer / PayPal →</div></div>
-<div class="sleek"><div class="plan">JOURNAL + SIGNALS — EA BRAIN</div><h3>Trade With Edge</h3><div class="price-line"><span class="pval" data-usd="195" data-zar="3599">$195</span></div><div class="once">ONCE-OFF • LIFETIME</div><ul><li>S1 BO / S2 FB / S3 CD Signals</li><li>Flashing Alerts — Target / Partial</li><li>News Filter — EA blocks bad news trades</li><li>Advice + FOUR Coach</li><li>Rules Live + Pin Message</li><li>Calculator — 6 Chances</li><li class="muted">Hard Lock NOT included</li></ul><button onclick="payFor('growth')" class="btn btn-dark">Pay — <span class="pval" data-usd="195" data-zar="3599">$195</span> 🔒</button><div class="pay-note">Card / Bank Transfer / PayPal →</div></div>
-</div>
-<div class="eft-box" style="margin-top:14px;text-align:center">
-<b>Can other countries do EFT? Yes — same thing, different name.</b><br>
-<span style="color:#64748B">🇿🇦 SA = EFT &nbsp;•&nbsp; 🇺🇸 USA = ACH / Wire &nbsp;•&nbsp; 🇬🇧 UK = Faster Payments &nbsp;•&nbsp; 🇪🇺 EU = SEPA &nbsp;•&nbsp; 🌍 Everyone = Card / PayPal / Wise / SWIFT</span><br>
-<span style="font-size:12px">SWIFT / BIC: <b>CABLZAJJ</b> — For international wire to Capitec.</span>
-</div>
-<div style="text-align:center;margin-top:16px"><button onclick="payFor('bundle')" class="btn btn-dark">Pay For Bundle Now 🔒</button></div>
-</div>
-<div class="chat" style="margin-top:18px"><div class="msg four">Will you keep going alone? Or let me protect you?<span class="t">FOUR • Now</span></div><div class="msg you">Okay FOUR. Let's do this.<span class="t">You • Now</span></div><div class="msg four">Good call. Tomorrow, you won't be alone.<span class="t">FOUR • Now</span></div></div>
-</div>
-</div>
-<footer><b style="font-family:'Playfair Display',serif;font-size:17px">FOUR — EMBEDDED</b><br>WhatsApp: +27 72 577 8727 | fourembedded@gmail.com<br>Hard Lock + Cooldown = No Revenge Trading.<br><span style="font-size:11px">Trading involves risk. FOUR is a risk tool, not financial advice.</span></footer>
-<div style="height:60px"></div>
-<div class="sticky"><div style="font-size:13px"><b>FOUR is waiting</b> <span style="color:#64748B">• Bundle <span class="pval" data-usd="270" data-zar="4999">$270</span></span></div><button onclick="payFor('bundle')" class="btn btn-dark" style="padding:9px 16px">Pay Now 🔒</button></div>
 <script>
-// ===== PAYMENT SETTINGS — EDIT ONLY HERE =====
-const PAY_LINKS = {
-  dashboard: "https://www.paypal.com/ncp/payment/E3WPD5HSVB6T6",
-  bundle: "https://www.paypal.com/ncp/payment/9VFPM6K2QCMQC",
-  growth: "https://www.paypal.com/ncp/payment/RUVU2TD3ZA6BJ"
+// Prices are fixed in this demo. Currency selector only changes display currency; it is not a live exchange rate.
+const PRODUCTS={
+ dashboard:{name:'Dashboard — EA Protection',zar:1500,usd:81,ref:'FOUR-DASHBOARD',paypal:'https://www.paypal.com/ncp/payment/E3WPD5HSVB6T6'},
+ bundle:{name:'Complete Bundle',zar:4999,usd:270,ref:'FOUR-BUNDLE',paypal:'https://www.paypal.com/ncp/payment/9VFPM6K2QCMQC'},
+ growth:{name:'Journal + Signals',zar:3599,usd:195,ref:'FOUR-GROWTH',paypal:'https://www.paypal.com/ncp/payment/RUVU2TD3ZA6BJ'}
 };
-const BANK = {
-  bank: "Capitec Bank",
-  name: "FOUR EMBEDDED (SIZWE M)",
-  number: "2557076496",
-  branch: "470010",
-  swift: "CABLZAJJ",
-  paypal: "fourembedded@gmail.com"
-};
-// ============================================
-let currentPlan = 'bundle';
-function payFor(plan){
-  currentPlan = plan;
-  let amounts = {dashboard: 'R1,500', bundle: 'R4,999', growth: 'R3,599'};
-  let amountsUSD = {dashboard: '$81', bundle: '$270', growth: '$195'};
-  let refs = {dashboard: 'FOUR-DASHBOARD', bundle: 'FOUR-BUNDLE', growth: 'FOUR-GROWTH'};
-  let titles = {dashboard: 'Pay For Dashboard', bundle: 'Pay For Bundle', growth: 'Pay For Journal + Signals'};
-  let cur = document.getElementById('curSelect') ? document.getElementById('curSelect').value : 'ZAR';
-  let amt = cur==='USD' ? amountsUSD[plan] : amounts[plan];
-  document.getElementById('payTitle').textContent = titles[plan] + " — " + amt;
-  document.getElementById('payAmt').textContent = amt;
-  document.getElementById('payRef').textContent = refs[plan];
-  document.getElementById('bankName').textContent = BANK.bank;
-  document.getElementById('accName').textContent = BANK.name;
-  document.getElementById('accNum').textContent = BANK.number;
-  document.getElementById('branchCode').textContent = BANK.branch;
-  document.getElementById('swiftCode').textContent = BANK.swift;
-  document.getElementById('paypalEmail').textContent = BANK.paypal;
-  document.getElementById('waProofBtn').href = "https://wa.me/27725778727?text=" + encodeURIComponent("Hi FOUR, I paid for " + plan.toUpperCase() + " " + amt + " — Here is my proof");
-  updateCountryPay();
-  showPayTab('card');
-  document.getElementById('payModal').classList.add('show');
-}
-function updateCountryPay(){
-  let c = document.getElementById('countrySelect').value;
-  let hints = {
-    ZA: "In SA, EFT = bank transfer. Use EFT / SnapScan tab. Instant EFT works too.",
-    US: "In USA, EFT = ACH / Wire. Use Bank Transfer tab, or Card for instant. SWIFT: CABLZAJJ for wire.",
-    UK: "In UK, EFT = Faster Payments / Bank Transfer. Use Bank Transfer tab, or Card for instant. SWIFT: CABLZAJJ for wire.",
-    EU: "In Europe, EFT = SEPA Transfer. Use Bank Transfer tab, or Card for instant. SWIFT: CABLZAJJ for wire.",
-    NG: "In Nigeria, use Bank Transfer or Card via Paystack. Paystack works in Nigeria.",
-    KE: "In Kenya, use M-Pesa / Bank Transfer. Or Card for instant.",
-    GH: "In Ghana, use Bank Transfer or Card via Paystack.",
-    OTHER: "Easiest for you = Card or PayPal / Wise. SWIFT wire also works: CABLZAJJ."
-  };
-  let labels = {
-    ZA: "Bank Transfer — South Africa (EFT):",
-    US: "Bank Transfer — USA (ACH / Wire / SWIFT):",
-    UK: "Bank Transfer — UK (Faster Payments / SWIFT):",
-    EU: "Bank Transfer — Europe (SEPA / SWIFT):",
-    NG: "Bank Transfer — Nigeria:",
-    KE: "Bank Transfer — Kenya (M-Pesa / Bank):",
-    GH: "Bank Transfer — Ghana:",
-    OTHER: "Bank Transfer — International (SWIFT):"
-  };
-  document.getElementById('countryHint').textContent = hints[c];
-  document.getElementById('eftLabel').textContent = labels[c];
-}
-function showPayTab(tab){
-  document.getElementById('tabCard').classList.toggle('active', tab==='card');
-  document.getElementById('tabEft').classList.toggle('active', tab==='eft');
-  document.getElementById('tabIntl').classList.toggle('active', tab==='intl');
-  document.getElementById('payCard').style.display = tab==='card' ? 'block' : 'none';
-  document.getElementById('payEft').style.display = tab==='eft' ? 'block' : 'none';
-  document.getElementById('payIntl').style.display = tab==='intl' ? 'block' : 'none';
-}
-function openPayLink(){
-  let link = PAY_LINKS[currentPlan];
-  if(link && link.startsWith("http")){ window.open(link, "_blank"); }
-  else { showPayTab('eft'); alert("Card link not added yet — use Bank Transfer / PayPal tab. Paste your Paystack / Stripe link in PAY_LINKS."); }
-}
-function copyAcc(){ navigator.clipboard.writeText(BANK.number); alert("Copied: " + BANK.number); }
-function copySwift(){ navigator.clipboard.writeText(BANK.swift); alert("Copied SWIFT: " + BANK.swift); }
-function copyRef(){ let r=document.getElementById('payRef').textContent; navigator.clipboard.writeText(r); alert("Copied: " + r); }
-function copyPaypal(){ navigator.clipboard.writeText(BANK.paypal); alert("Copied: " + BANK.paypal); }
-function closePay(){ document.getElementById('payModal').classList.remove('show'); }
-let currentCurrency='ZAR';
-function fmt(n,cur){let s=cur==="USD"?"$":cur==="ZAR"?"R":cur==="EUR"?"€":"£";return s+Math.round(n).toLocaleString()}
-function setCurrency(cur){
-  currentCurrency=cur;
-  document.getElementById('btnUSD').classList.toggle('active',cur==='USD');
-  document.getElementById('btnZAR').classList.toggle('active',cur==='ZAR');
-  let tU=document.getElementById('toggleUSD'), tZ=document.getElementById('toggleZAR');
-  if(tU){tU.classList.toggle('active',cur==='USD'); tZ.classList.toggle('active',cur==='ZAR');}
-  document.querySelectorAll('.pval').forEach(el=>{
-    let usd=parseFloat(el.dataset.usd);
-    let zar=parseFloat(el.dataset.zar);
-    if(!isNaN(usd) && !isNaN(zar)){ el.textContent = cur==='ZAR' ? fmt(zar,'ZAR') : fmt(usd,'USD'); }
-  });
-  document.getElementById('curSelect').value=cur;
-  if(cur==='ZAR'){document.getElementById('balInput').value=100000;document.getElementById('riskInput').value=500;document.getElementById('myLossInput').value=3000;document.getElementById('lostInput').value=0;}
-  else if(cur==='USD'){document.getElementById('balInput').value=5400;document.getElementById('riskInput').value=27;document.getElementById('myLossInput').value=162;document.getElementById('lostInput').value=0;}
-  document.getElementById('locNote').textContent=cur==='ZAR'?'Prices in Rand (R) • EFT in SA = Bank Transfer everywhere else':'Prices in Dollars ($) • Card works worldwide';
-  calc();
-}
-function confirmSA(yes){document.getElementById('saPopup').classList.remove('show');if(yes)setCurrency('ZAR');else setCurrency('USD');localStorage.setItem('four_currency_choice',yes?'ZAR':'USD')}
-function calc(){
-  let bal=parseFloat(document.getElementById("balInput").value)||0;
-  let cur=document.getElementById("curSelect").value;
-  let pct=parseFloat(document.getElementById("pctSelect").value)||0.03;
-  let risk=parseFloat(document.getElementById("riskInput").value)||0;
-  let myLoss=parseFloat(document.getElementById("myLossInput").value)||0;
-  let lost=parseFloat(document.getElementById("lostInput").value)||0;
-  let dailyLimit = bal * pct;
-  let effectiveLimit = myLoss > 0 ? myLoss : dailyLimit;
-  let chances = risk > 0 ? Math.floor(effectiveLimit / risk) : 0;
-  let chancesLeft = risk > 0 ? Math.max(0, Math.floor((effectiveLimit - lost) / risk)) : 0;
-  document.getElementById("rDaily").textContent=fmt(effectiveLimit,cur);
-  document.getElementById("rRisk").textContent=fmt(risk,cur);
-  document.getElementById("rChances").textContent=chances;
-  document.getElementById("chanceBig").textContent = "You Get " + chances + " Chances";
-  document.getElementById("chanceText").textContent = fmt(effectiveLimit,cur) + " ÷ " + fmt(risk,cur) + " = " + chances + " trades.";
-  let v=document.getElementById("verdict");
-  if(myLoss>0 && lost>=myLoss){v.textContent="Hard Locked — Used all "+chances+" chances.";v.style.color="#B45309";}
-  else if(lost>0){v.textContent="Lost "+fmt(lost,cur)+" — "+chancesLeft+" chances left.";v.style.color="#15803D";}
-  else{v.textContent="Safe — "+chances+" chances left.";v.style.color="#15803D";}
-  document.getElementById("calcCode").innerHTML="Prop: "+fmt(dailyLimit,cur)+" ("+(pct*100)+"% of "+fmt(bal,cur)+") • FOUR: "+fmt(effectiveLimit,cur)+" • Risk: "+fmt(risk,cur);
-}
-function selectStrat(el, name){
-  document.querySelectorAll('.strat').forEach(s=>{s.classList.remove('active'); s.querySelector('.check').textContent='Tap to make A+'; s.querySelector('.check').style.color='#94A3B8';});
-  el.classList.add('active');
-  el.querySelector('.check').textContent='✓ A+ SELECTED';
-  el.querySelector('.check').style.color='#15803D';
-  document.getElementById('stratReminder').textContent = name+" only today. No B / C trades.";
-}
-function saveMsg(){
-  let val=document.getElementById('myMsgInput').value.trim();
-  if(!val) return;
-  document.getElementById('myMsg').textContent='📌 "'+val+'"';
-  document.getElementById('myMsgInput').value='';
-  document.getElementById('flashBar').textContent='⚡ '+val;
-}
-async function detectLocation(){
-  let saved=localStorage.getItem('four_currency_choice');
-  if(saved){setCurrency(saved);return}
-  try{
-    let res=await fetch('https://ipapi.co/json/');
-    let data=await res.json();
-    if(data&&(data.country_code==='ZA'||data.country_name==='South Africa')){
-      setTimeout(()=>document.getElementById('saPopup').classList.add('show'),800);
-    } else { setCurrency('USD'); }
-  } catch(e){ setCurrency('ZAR'); }
-}
-setCurrency('ZAR');
-calc();
-detectLocation();
-let msgs=["R200 away from target. Take partial now.","After loss → 30 min cooldown. Breathe.","Only A+ S1 BO today. No B trades.","News in 15 min: USD CPI — FOUR will block USD."];
-let mi=0;
-setInterval(()=>{ let bar=document.getElementById('flashBar'); if(bar){ mi=(mi+1)%msgs.length; bar.textContent="⚡ "+msgs[mi]; } }, 5000);
+const BANK={name:'FOUR EMBEDDED (SIZWE M)',number:'2557076496',branch:'470010',swift:'CABLZAJJ',paypal:'fourembedded@gmail.com'};
+let currentCurrency='ZAR',currentProduct='bundle';
+function fmt(value,currency=currentCurrency){const rounded=Math.round(Number(value)||0).toLocaleString('en-US');return currency==='USD'?'$'+rounded:currency==='ZAR'?'R'+rounded:currency==='EUR'?'€'+rounded:'£'+rounded}
+function setCurrency(currency){currentCurrency=currency;document.querySelectorAll('.priceval').forEach(el=>{const v=Number(el.dataset[currency.toLowerCase()]);if(Number.isFinite(v))el.textContent=fmt(v,currency)});['navUSD','priceUSD'].forEach(id=>document.getElementById(id)?.classList.toggle('active',currency==='USD'));['navZAR','priceZAR'].forEach(id=>document.getElementById(id)?.classList.toggle('active',currency==='ZAR'));document.getElementById('currencySelect').value=currency;document.getElementById('currencyNote').textContent=currency==='ZAR'?'Prices displayed in Rand (ZAR)':'Prices displayed in US Dollars (USD). Fixed display prices—not live exchange conversion.';updateModalAmounts()}
+function payFor(product){currentProduct=product;const p=PRODUCTS[product];document.getElementById('payTitle').textContent='Checkout preview — '+p.name;document.getElementById('payDesc').textContent='Amount shown: '+fmt(p[currentCurrency.toLowerCase()])+' • '+p.ref;document.getElementById('payReference').textContent=p.ref;document.getElementById('bankAmount').textContent=fmt(p.zar,'ZAR');document.getElementById('paypalLink').href=p.paypal;document.getElementById('paypalLink').textContent='Open PayPal payment →';document.getElementById('proofLink').href='https://wa.me/27725778727?text='+encodeURIComponent('Hi FOUR, I need payment instructions for '+p.name+' ('+fmt(p[currentCurrency.toLowerCase()])+'). Reference: '+p.ref);showTab('card');document.getElementById('paymentModal').classList.add('show');document.body.style.overflow='hidden'}
+function updateModalAmounts(){if(document.getElementById('paymentModal').classList.contains('show'))payFor(currentProduct)}
+function showTab(tab){const tabs={card:'viewCard',bank:'viewBank',international:'viewInternational'};document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));document.getElementById('tab'+(tab==='international'?'Intl':tab==='bank'?'Bank':'Card')).classList.add('active');document.querySelectorAll('.payview').forEach(v=>v.classList.remove('active'));document.getElementById(tabs[tab]).classList.add('active')}
+function closeModal(){document.getElementById('paymentModal').classList.remove('show');document.body.style.overflow=''}
+function copyText(id){const value=document.getElementById(id).textContent.trim();copyPlain(value)}
+async function copyPlain(value){try{await navigator.clipboard.writeText(value);alert('Copied: '+value)}catch(err){prompt('Copy this text:',value)}}
+function selectStrat(el,name){document.querySelectorAll('.strat').forEach(s=>{s.classList.remove('active');const check=s.querySelector('.check');check.textContent='Tap to select preview';check.style.color='#94a3b8'});el.classList.add('active');const check=el.querySelector('.check');check.textContent='✓ PREVIEW SELECTED';check.style.color='#15803d';document.getElementById('stratReminder').textContent=name+' selected in this demo. This does not control a live account.'}
+function saveMsg(){const input=document.getElementById('myMsgInput'),value=input.value.trim();if(!value)return;document.getElementById('myMsg').textContent='Pinned reminder: '+value;document.getElementById('flashBar').textContent='Reminder preview: '+value;input.value=''}
+function calculate(){const balance=Math.max(0,Number(document.getElementById('balance').value)||0),pct=(Number(document.getElementById('dailyPct').value)||0)/100,risk=Math.max(0,Number(document.getElementById('riskTrade').value)||0),custom=Math.max(0,Number(document.getElementById('fourLimit').value)||0),loss=Math.max(0,Number(document.getElementById('lossToday').value)||0),cur=document.getElementById('currencySelect').value;const propLimit=balance*pct,fourLimit=custom>0?Math.min(custom,propLimit):propLimit,remaining=Math.max(0,fourLimit-loss),allocations=risk>0?Math.floor(fourLimit/risk):0,left=risk>0?Math.floor(remaining/risk):0;document.getElementById('propLimit').textContent=fmt(propLimit,cur);document.getElementById('fourLimitResult').textContent=fmt(fourLimit,cur);document.getElementById('riskResult').textContent=fmt(risk,cur);document.getElementById('chances').textContent=allocations;document.getElementById('remainingText').textContent=fmt(remaining,cur)+' remaining';document.getElementById('capacitySub').textContent=left+' full-risk allocations remain at your selected risk';const percent=fourLimit>0?Math.max(0,Math.min(100,(remaining/fourLimit)*100)):0;document.getElementById('capacityBar').style.width=percent+'%';const verdict=document.getElementById('calcVerdict');if(fourLimit<=0){verdict.textContent='Enter a positive FOUR limit or balance to calculate.'}else if(loss>=fourLimit){verdict.textContent='Limit reached in this calculation. Stop and review your rules.'}else if(loss>0){verdict.textContent=fmt(loss,cur)+' used. '+left+' full-risk allocations remain (estimate).'}else{verdict.textContent='Your FOUR limit is available in this calculation. Stay within your plan.'}}
+document.querySelectorAll('#balance,#dailyPct,#riskTrade,#fourLimit,#lossToday,#currencySelect').forEach(el=>el.addEventListener('input',calculate));document.getElementById('currencySelect').addEventListener('change',calculate);document.getElementById('paymentModal').addEventListener('click',e=>{if(e.target.id==='paymentModal')closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});setCurrency('ZAR');calculate();
 </script>
 </body>
 </html>
